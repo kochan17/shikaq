@@ -1,17 +1,36 @@
-# shikaq
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-> スマホ完結の資格学習サブスク — 次世代ユーキャン
+## Getting Started
 
-## Concept
+First, run the development server:
 
-スマートフォンだけで資格取得の学習が完結する、AI駆動の学習サブスクリプションサービス。
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Why
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- 既存の資格学習サービスはPCベースで重い
-- テキスト教材は続かない
-- AIが個人の理解度に合わせて最適な学習パスを提示する時代
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Vision
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-通勤時間やスキマ時間で資格学習を完結。AIが弱点を分析し、合格に最短で到達できるパーソナライズド学習を実現。
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
