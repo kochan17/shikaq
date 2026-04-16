@@ -13,5 +13,5 @@
 
 ## 参照
 
-詳細は `supabase/migrations/001_initial_schema.sql` を参照。
+詳細は `shikaq-app/supabase/migrations/001_initial_schema.sql` を参照。
 スキーマ変更時は新しいマイグレーションファイルを追加すること。
