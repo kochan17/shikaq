@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>shikaq - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        systemBlue: "#007AFF",
+                        systemGreen: "#34C759",
+                        systemOrange: "#FF9F0A",
+                        systemIndigo: "#5E5CE6",
+                        systemGroupedBackground: "#F2F2F7",
+                        label: "#000000",
+                        secondaryLabel: "#8E8E93",
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'Hiragino Sans', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                        pill: "9999px",
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F2F2F7;
+            -webkit-font-smoothing: antialiased;
+            color: #000;
+        }
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(26px);
+            -webkit-backdrop-filter: blur(26px);
+        }
+        .hairline-border {
+            border: 0.5px solid rgba(0,0,0,0.1);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="w-[390px] min-h-[844px] mx-auto overflow-x-hidden relative pb-[100px]">
+<!-- Status Bar (Mock) -->
+<div class="h-12 w-full flex justify-between items-center px-6 text-xs font-medium z-50">
+<span>7:43</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- Header Section -->
+<header class="px-5 pt-2 pb-4 flex justify-between items-end">
+<div>
+<h1 class="text-[34px] font-semibold tracking-tight leading-tight">Today</h1>
+<p class="text-[15px] text-secondaryLabel mt-1">おはよう、Ayumi さん</p>
+</div>
+<div class="bg-systemOrange/10 text-systemOrange px-3 py-1.5 rounded-pill flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[13px] font-semibold">14日</span>
+</div>
+</header>
+<main class="px-5 flex flex-col gap-6">
+<!-- Featured Hero Card -->
+<section class="bg-white rounded hairline-border relative overflow-hidden p-5 flex flex-col justify-between h-[200px]">
+<!-- Decorative bg pattern -->
+<div class="absolute right-0 top-0 w-32 h-32 bg-systemIndigo/10 rounded-bl-[60px] transform rotate-12 -translate-y-4 translate-x-4"></div>
+<div class="relative z-10">
+<p class="text-systemBlue text-[13px] font-semibold mb-2">朝の5問</p>
+<h2 class="text-[26px] font-semibold leading-tight tracking-tight mb-2 w-3/4">データベースの<br/>正規化</h2>
+<p class="text-[13px] text-secondaryLabel">基本情報技術者 · 5問 · 約7分</p>
+</div>
+<div class="relative z-10 flex justify-end">
+<button class="bg-systemBlue text-white px-5 py-2 rounded-pill text-[15px] font-medium">
+                    始める
+                </button>
+</div>
+</section>
+<!-- 続きから (Resume) -->
+<section>
+<div class="flex justify-between items-end mb-3">
+<h3 class="text-[20px] font-semibold tracking-tight">続きから</h3>
+<a class="text-systemBlue text-[15px]" href="#">すべて</a>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar -mx-5 px-5">
+<!-- Card 1 -->
+<div class="w-[140px] flex-shrink-0 flex flex-col gap-2">
+<div class="h-[180px] bg-white rounded hairline-border p-3 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-systemIndigo/5 to-transparent"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-systemIndigo mb-1" style="font-variation-settings: 'FILL' 1;">dataset</span>
+<p class="text-[14px] font-medium leading-snug">データベースの基礎</p>
+</div>
+</div>
+<div class="w-full bg-gray-200 h-1 rounded-pill overflow-hidden">
+<div class="bg-systemBlue h-full w-[60%]"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="w-[140px] flex-shrink-0 flex flex-col gap-2">
+<div class="h-[180px] bg-white rounded hairline-border p-3 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-[#64D2FF]/5 to-transparent"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-[#64D2FF] mb-1" style="font-variation-settings: 'FILL' 1;">lan</span>
+<p class="text-[14px] font-medium leading-snug">ネットワーク層</p>
+</div>
+</div>
+<div class="w-full bg-gray-200 h-1 rounded-pill overflow-hidden">
+<div class="bg-systemBlue h-full w-[30%]"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="w-[140px] flex-shrink-0 flex flex-col gap-2">
+<div class="h-[180px] bg-white rounded hairline-border p-3 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-[#FFD60A]/5 to-transparent"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-[#FFD60A] mb-1" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+<p class="text-[14px] font-medium leading-snug">アルゴリズム</p>
+</div>
+</div>
+<div class="w-full bg-gray-200 h-1 rounded-pill overflow-hidden">
+<div class="bg-systemBlue h-full w-[10%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 今週の記録 (Weekly Stats) -->
+<section>
+<h3 class="text-[20px] font-semibold tracking-tight mb-3">今週の記録</h3>
+<div class="bg-white rounded hairline-border p-4 flex items-center gap-5">
+<!-- Mock Fitness Rings -->
+<div class="w-20 h-20 relative flex-shrink-0">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="40" stroke="#f0f0f0" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="40" stroke="#007AFF" stroke-dasharray="251.2" stroke-dashoffset="60" stroke-linecap="round" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="28" stroke="#f0f0f0" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="28" stroke="#34C759" stroke-dasharray="175.9" stroke-dashoffset="30" stroke-linecap="round" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="16" stroke="#f0f0f0" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="16" stroke="#FF9F0A" stroke-dasharray="100.5" stroke-dashoffset="10" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+</div>
+<div class="flex flex-col gap-1.5 flex-grow">
+<div class="flex justify-between items-center border-b border-gray-100 pb-1">
+<span class="text-[13px] text-secondaryLabel">問題数</span>
+<span class="text-[15px] font-semibold">147</span>
+</div>
+<div class="flex justify-between items-center border-b border-gray-100 pb-1">
+<span class="text-[13px] text-secondaryLabel">正答率</span>
+<span class="text-[15px] font-semibold">82%</span>
+</div>
+<div class="flex justify-between items-center pb-1">
+<span class="text-[13px] text-secondaryLabel">学習時間</span>
+<span class="text-[15px] font-semibold">3h24m</span>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Assistant -->
+<section>
+<div class="bg-white rounded hairline-border p-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-systemIndigo text-[18px]">auto_awesome</span>
+<h3 class="text-[16px] font-semibold">疑問をそのまま聞いてみる</h3>
+</div>
+<div class="bg-systemGroupedBackground rounded-pill px-4 py-2 text-[15px] text-secondaryLabel mb-3">
+                     AIアシスタントに質問...
+                 </div>
+<div class="flex flex-wrap gap-2">
+<span class="text-[12px] bg-systemGroupedBackground px-3 py-1.5 rounded-pill text-label">なぜ正規化が必要？</span>
+<span class="text-[12px] bg-systemGroupedBackground px-3 py-1.5 rounded-pill text-label">この問題の解き方は？</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Generated from JSON structure) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 px-4 py-3 pb-8">
+<div class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl rounded-full mx-2 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.08)] flex justify-around items-center px-4 py-3">
+<a class="flex flex-col items-center justify-center text-[#007AFF] hover:bg-black/5 rounded-full active:scale-90 transition-transform duration-200 px-2" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-medium tracking-wide">ホーム</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#8E8E93] hover:bg-black/5 rounded-full active:scale-90 transition-transform duration-200 px-2" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">book_2</span>
+<span class="text-[10px] font-medium tracking-wide">学習</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#8E8E93] hover:bg-black/5 rounded-full active:scale-90 transition-transform duration-200 px-2" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">edit_note</span>
+<span class="text-[10px] font-medium tracking-wide">演習</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#8E8E93] hover:bg-black/5 rounded-full active:scale-90 transition-transform duration-200 px-2" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">auto_awesome</span>
+<span class="text-[10px] font-medium tracking-wide">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#8E8E93] hover:bg-black/5 rounded-full active:scale-90 transition-transform duration-200 px-2" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">person</span>
+<span class="text-[10px] font-medium tracking-wide">マイページ</span>
+</a>
+</div>
+</nav>
+</body></html>

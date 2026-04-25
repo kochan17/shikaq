@@ -65,3 +65,6 @@ android/
 
 # Claude local settings
 .claude/settings.local.json
+
+# Codex / image-2 一時作業ディレクトリ
+/tmp/

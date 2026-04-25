@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>shikaq - Today</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        systemBlue: '#007AFF',
+                        systemGreen: '#34C759',
+                        systemOrange: '#FF9F0A',
+                        systemRed: '#FF3B30',
+                        systemBackground: '#FFFFFF',
+                        secondarySystemBackground: '#F2F2F7',
+                        label: '#000000',
+                        secondaryLabel: '#3C3C43',
+                        systemFill: '#78788033',
+                        itPassport: '#64D2FF',
+                        fe: '#5E5CE6',
+                        spi: '#FFD60A',
+                        secretary: '#FF9F0A',
+                        boki: '#FF375F',
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                        lg: "16px",
+                        xl: "20px",
+                        full: "9999px"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Hiragino Sans', 'ヒラギノ角ゴ', 'sans-serif'],
+                        headline: ['Inter', 'Hiragino Sans', 'sans-serif'],
+                        body: ['Inter', 'Hiragino Sans', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', 'Hiragino Sans', 'ヒラギノ角ゴ', sans-serif; }
+        .liquid-glass {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hairline-border {
+            border: 0.5px solid rgba(0, 0, 0, 0.1);
+        }
+        /* Material Icons setup for SF Symbol-like appearance */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Hide scrollbars but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-secondarySystemBackground text-label h-screen w-screen overflow-hidden flex antialiased">
+<!-- Left Sidebar (Liquid Glass) -->
+<aside class="w-[260px] h-full liquid-glass flex flex-col flex-shrink-0 z-20 border-r border-black/10">
+<!-- Profile Area -->
+<div class="px-6 py-8 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-4 hairline-border">
+<img alt="ユーザープロフィール" class="w-full h-full object-cover" data-alt="Portrait of a young Japanese woman with subtle, natural makeup and a slight smile, well-lit studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuNbcjY3bWvVGn8eqnjZM2TyiL5_z_-OcA645AGZ2WYVRPahBNm7v9a-CIr9UckzF3VieJRuaZhtsMzxQefYOCendTRfRrdsnDusdMAlzUTAJTzauOIFfXelkyU6OWch62F6H59CqGgIAu1MmvMwZxt1IN6SjWGfK-8YHmH0lQXLQ56VwK1a6E0d3gnU2q8qxkKmQuJBpXDC9HYmwWsznmWs_QyX8X8EVzrYhn7xMM9qS-hgcWxzmxlf925Dw4nY3dlDYxaXQPkHSw"/>
+</div>
+<h2 class="text-[17px] font-semibold mb-2">おはよう、Ayumi さん</h2>
+<div class="flex items-center gap-1.5 bg-systemOrange/10 text-systemOrange px-3 py-1 rounded-full">
+<span class="material-symbols-outlined fill text-sm">local_fire_department</span>
+<span class="text-[13px] font-medium tracking-tight">14日連続</span>
+</div>
+</div>
+<!-- Scrollable Navigation -->
+<div class="flex-1 overflow-y-auto no-scrollbar px-3 pb-8">
+<!-- Certifications Section -->
+<div class="mb-8">
+<h3 class="text-[13px] font-semibold text-secondaryLabel uppercase tracking-wider px-3 mb-2">資格</h3>
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<div class="w-2.5 h-2.5 rounded-full bg-itPassport"></div>
+<span>ITパスポート</span>
+</a>
+</li>
+<li>
+<!-- SELECTED STATE -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl bg-fe/10 text-fe text-[17px] font-semibold transition-colors" href="#">
+<div class="w-2.5 h-2.5 rounded-full bg-fe"></div>
+<span>基本情報技術者</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<div class="w-2.5 h-2.5 rounded-full bg-spi"></div>
+<span>SPI</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<div class="w-2.5 h-2.5 rounded-full bg-secretary"></div>
+<span>秘書検定</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<div class="w-2.5 h-2.5 rounded-full bg-boki"></div>
+<span>簿記2級</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Menu Section -->
+<div>
+<h3 class="text-[13px] font-semibold text-secondaryLabel uppercase tracking-wider px-3 mb-2">メニュー</h3>
+<ul class="space-y-1">
+<li>
+<!-- SELECTED STATE -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl bg-systemBlue/10 text-systemBlue text-[17px] font-semibold transition-colors" href="#">
+<span class="material-symbols-outlined fill text-xl">home</span>
+<span>Today</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+<span>Learn</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">edit_document</span>
+<span>Practice</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+<span>AI Q&amp;A</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">bar_chart</span>
+<span>Summary</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-[17px] text-secondaryLabel hover:bg-black/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">person</span>
+<span>Profile</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+<!-- Center Column (Main Content) -->
+<main class="flex-1 flex flex-col min-w-0 relative h-full">
+<!-- Top Nav (Liquid Glass) -->
+<header class="h-[72px] liquid-glass border-b border-black/10 flex items-center justify-between px-8 sticky top-0 z-10 w-full">
+<div>
+<h1 class="text-[22px] font-semibold leading-tight">Today</h1>
+<p class="text-[13px] text-secondaryLabel">2026年4月24日 金曜日</p>
+</div>
+<div class="flex items-center gap-4 text-secondaryLabel">
+<button class="p-2 hover:bg-black/5 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+<button class="p-2 hover:bg-black/5 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-systemRed rounded-full border border-white"></span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 space-y-6 pb-24">
+<!-- Hero Card -->
+<div class="bg-systemBackground rounded-2xl hairline-border overflow-hidden flex h-[240px]">
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<div class="text-[13px] font-semibold text-fe mb-1">朝の5問</div>
+<h2 class="text-[28px] font-semibold mb-2">データベースの正規化</h2>
+<p class="text-[16px] text-secondaryLabel">基本情報技術者 · 5問 · 約7分</p>
+</div>
+<div>
+<button class="bg-systemBlue text-white px-6 py-2.5 rounded-full text-[17px] font-semibold hover:opacity-90 transition-opacity">
+                            始める
+                        </button>
+</div>
+</div>
+<div class="w-[300px] bg-fe/5 relative overflow-hidden flex items-center justify-center">
+<!-- Abstract geometric illustration representing tables/data -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 30%, #5E5CE6 0%, transparent 50%), radial-gradient(circle at 80% 70%, #5E5CE6 0%, transparent 50%);"></div>
+<div class="grid grid-cols-3 gap-2 p-4 z-10 w-full max-w-[200px]">
+<div class="h-4 bg-fe/20 rounded-sm col-span-3"></div>
+<div class="h-16 bg-fe/40 rounded-sm"></div>
+<div class="h-16 bg-fe/30 rounded-sm"></div>
+<div class="h-16 bg-fe/20 rounded-sm"></div>
+<div class="h-4 bg-fe/10 rounded-sm col-span-3 mt-2"></div>
+</div>
+</div>
+</div>
+<!-- "続きから" Section -->
+<section>
+<h3 class="text-[22px] font-semibold mb-4 px-1">続きから</h3>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<!-- Card 1 -->
+<div class="bg-systemBackground rounded-2xl hairline-border p-5 min-w-[240px] flex-shrink-0 flex flex-col justify-between h-[200px]">
+<div>
+<div class="w-10 h-10 rounded-lg bg-fe/10 flex items-center justify-center mb-3 text-fe">
+<span class="material-symbols-outlined">dataset</span>
+</div>
+<h4 class="text-[17px] font-semibold leading-tight mb-1">データベースの基礎</h4>
+<p class="text-[13px] text-secondaryLabel">基本情報技術者</p>
+</div>
+<div>
+<div class="flex justify-between text-[13px] text-secondaryLabel mb-1.5">
+<span>75%</span>
+<span>残り3分</span>
+</div>
+<div class="h-1.5 w-full bg-black/5 rounded-full overflow-hidden">
+<div class="h-full bg-systemBlue rounded-full w-[75%]"></div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-systemBackground rounded-2xl hairline-border p-5 min-w-[240px] flex-shrink-0 flex flex-col justify-between h-[200px]">
+<div>
+<div class="w-10 h-10 rounded-lg bg-fe/10 flex items-center justify-center mb-3 text-fe">
+<span class="material-symbols-outlined">router</span>
+</div>
+<h4 class="text-[17px] font-semibold leading-tight mb-1">ネットワーク層とTCP/IP</h4>
+<p class="text-[13px] text-secondaryLabel">基本情報技術者</p>
+</div>
+<div>
+<div class="flex justify-between text-[13px] text-secondaryLabel mb-1.5">
+<span>40%</span>
+<span>残り12分</span>
+</div>
+<div class="h-1.5 w-full bg-black/5 rounded-full overflow-hidden">
+<div class="h-full bg-systemBlue rounded-full w-[40%]"></div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-systemBackground rounded-2xl hairline-border p-5 min-w-[240px] flex-shrink-0 flex flex-col justify-between h-[200px]">
+<div>
+<div class="w-10 h-10 rounded-lg bg-fe/10 flex items-center justify-center mb-3 text-fe">
+<span class="material-symbols-outlined">functions</span>
+</div>
+<h4 class="text-[17px] font-semibold leading-tight mb-1">アルゴリズムの計算量</h4>
+<p class="text-[13px] text-secondaryLabel">基本情報技術者</p>
+</div>
+<div>
+<div class="flex justify-between text-[13px] text-secondaryLabel mb-1.5">
+<span>15%</span>
+<span>残り20分</span>
+</div>
+<div class="h-1.5 w-full bg-black/5 rounded-full overflow-hidden">
+<div class="h-full bg-systemBlue rounded-full w-[15%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Two-column Row -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Left: 今週の記録 -->
+<div class="bg-systemBackground rounded-2xl hairline-border p-6 flex flex-col">
+<h3 class="text-[17px] font-semibold mb-6">今週の記録</h3>
+<div class="flex items-center gap-8 flex-1">
+<!-- Simulated Fitness Rings using SVG -->
+<div class="relative w-32 h-32 flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Rings -->
+<circle cx="50" cy="50" fill="none" r="40" stroke="#F2F2F7" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="28" stroke="#F2F2F7" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="16" stroke="#F2F2F7" stroke-width="8"></circle>
+<!-- Progress Rings -->
+<!-- Learning Time (Blue) -->
+<circle cx="50" cy="50" fill="none" r="40" stroke="#007AFF" stroke-dasharray="251.2" stroke-dashoffset="60" stroke-linecap="round" stroke-width="8"></circle>
+<!-- Questions (Green) -->
+<circle cx="50" cy="50" fill="none" r="28" stroke="#34C759" stroke-dasharray="175.9" stroke-dashoffset="40" stroke-linecap="round" stroke-width="8"></circle>
+<!-- Accuracy (Orange) -->
+<circle cx="50" cy="50" fill="none" r="16" stroke="#FF9F0A" stroke-dasharray="100.5" stroke-dashoffset="18" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+</div>
+<div class="space-y-4 w-full">
+<div>
+<div class="flex items-center gap-2 text-[13px] text-secondaryLabel mb-1">
+<div class="w-2 h-2 rounded-full bg-systemBlue"></div>
+                                    学習時間
+                                </div>
+<div class="text-[22px] font-semibold">3<span class="text-[16px] text-secondaryLabel font-normal">h</span>24<span class="text-[16px] text-secondaryLabel font-normal">m</span></div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[13px] text-secondaryLabel mb-1">
+<div class="w-2 h-2 rounded-full bg-systemGreen"></div>
+                                    問題数
+                                </div>
+<div class="text-[22px] font-semibold">147<span class="text-[16px] text-secondaryLabel font-normal">問</span></div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[13px] text-secondaryLabel mb-1">
+<div class="w-2 h-2 rounded-full bg-systemOrange"></div>
+                                    正答率
+                                </div>
+<div class="text-[22px] font-semibold">82<span class="text-[16px] text-secondaryLabel font-normal">%</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: 苦手分野 & AI -->
+<div class="flex flex-col gap-6">
+<!-- 苦手分野 -->
+<div class="bg-systemBackground rounded-2xl hairline-border p-6 flex-1">
+<h3 class="text-[17px] font-semibold mb-4">苦手分野の復習</h3>
+<ul class="space-y-3">
+<li class="flex items-center justify-between">
+<span class="text-[16px]">SQLのJOIN</span>
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-black/5 rounded-full overflow-hidden">
+<div class="h-full bg-systemOrange rounded-full w-[52%]"></div>
+</div>
+<span class="text-[13px] text-secondaryLabel w-8 text-right">52%</span>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-[16px]">基数変換</span>
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-black/5 rounded-full overflow-hidden">
+<div class="h-full bg-systemOrange rounded-full w-[61%]"></div>
+</div>
+<span class="text-[13px] text-secondaryLabel w-8 text-right">61%</span>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<span class="text-[16px]">公開鍵暗号方式</span>
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-black/5 rounded-full overflow-hidden">
+<div class="h-full bg-systemBlue rounded-full w-[68%]"></div>
+</div>
+<span class="text-[13px] text-secondaryLabel w-8 text-right">68%</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- AI Assistant -->
+<div class="bg-systemBackground rounded-2xl hairline-border p-5">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-fe">smart_toy</span>
+<h3 class="text-[16px] font-semibold">AIアシスタント</h3>
+</div>
+<div class="relative mb-3">
+<input class="w-full bg-secondarySystemBackground border-none rounded-xl pl-4 pr-10 py-2.5 text-[16px] focus:ring-fe" placeholder="何でも質問してください..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-secondaryLabel hover:text-fe">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar">
+<button class="px-3 py-1.5 bg-black/5 rounded-full text-[13px] whitespace-nowrap hover:bg-black/10 transition-colors">OSI基本参照モデルとは？</button>
+<button class="px-3 py-1.5 bg-black/5 rounded-full text-[13px] whitespace-nowrap hover:bg-black/10 transition-colors">B木の特徴</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Spacing for fixed audio player -->
+<div class="h-8"></div>
+</div>
+<!-- Now Playing Bar (Fixed at bottom of main content) -->
+<div class="absolute bottom-6 left-8 right-8 h-[64px] liquid-glass rounded-2xl hairline-border flex items-center px-4 shadow-sm z-30">
+<div class="w-12 h-12 rounded-lg bg-fe/10 flex items-center justify-center text-fe mr-4">
+<span class="material-symbols-outlined text-[28px]">graphic_eq</span>
+</div>
+<div class="flex-1 min-w-0 pr-4">
+<h4 class="text-[16px] font-semibold truncate">音声解説クイズ</h4>
+<p class="text-[13px] text-secondaryLabel truncate">今夜の配信 21:00</p>
+</div>
+<div class="flex items-center gap-4 text-secondaryLabel">
+<button class="p-2 hover:bg-black/5 rounded-full transition-colors hidden sm:block">
+<span class="material-symbols-outlined">replay_10</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-black/10 transition-colors text-label">
+<span class="material-symbols-outlined fill">play_arrow</span>
+</button>
+<button class="p-2 hover:bg-black/5 rounded-full transition-colors hidden sm:block">
+<span class="material-symbols-outlined">forward_10</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Right Detail Pane (White) -->
+<aside class="w-[300px] h-full bg-systemBackground flex-shrink-0 z-20 border-l border-black/10 flex flex-col p-6 overflow-y-auto">
+<h2 class="text-[22px] font-semibold mb-6">今日のゴール</h2>
+<!-- Goal Ring -->
+<div class="flex flex-col items-center mb-8">
+<div class="relative w-40 h-40 mb-4">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="44" stroke="#F2F2F7" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="44" stroke="#007AFF" stroke-dasharray="276.4" stroke-dashoffset="110.5" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-[32px] font-semibold tracking-tight">3<span class="text-[20px] text-secondaryLabel font-normal"> / 5</span></span>
+<span class="text-[13px] text-secondaryLabel">問</span>
+</div>
+</div>
+<div class="bg-secondarySystemBackground px-4 py-2 rounded-full text-[13px] font-medium">
+                あと2問 · 約3分
+            </div>
+</div>
+<!-- Agenda List -->
+<div>
+<h3 class="text-[16px] font-semibold mb-4">アジェンダ</h3>
+<div class="relative">
+<!-- Timeline line -->
+<div class="absolute left-[7px] top-2 bottom-2 w-[2px] bg-black/5"></div>
+<ul class="space-y-6 relative">
+<!-- Past Item -->
+<li class="flex gap-4 opacity-50">
+<div class="w-4 h-4 rounded-full bg-systemGreen border-2 border-white flex-shrink-0 mt-1 relative z-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-size: 10px; font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div>
+<div class="text-[13px] font-medium text-secondaryLabel mb-0.5">7:50</div>
+<div class="text-[16px]">朝の5問</div>
+</div>
+</li>
+<!-- Upcoming Item 1 -->
+<li class="flex gap-4">
+<div class="w-4 h-4 rounded-full bg-systemBlue border-2 border-white flex-shrink-0 mt-1 relative z-10 shadow-[0_0_0_2px_#007AFF40]"></div>
+<div>
+<div class="text-[13px] font-medium text-systemBlue mb-0.5">21:00</div>
+<div class="text-[16px] font-semibold">音声クイズ</div>
+</div>
+</li>
+<!-- Upcoming Item 2 -->
+<li class="flex gap-4">
+<div class="w-4 h-4 rounded-full bg-black/10 border-2 border-white flex-shrink-0 mt-1 relative z-10"></div>
+<div>
+<div class="text-[13px] font-medium text-secondaryLabel mb-0.5">22:30</div>
+<div class="text-[16px]">明日の予習</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+</body></html>
