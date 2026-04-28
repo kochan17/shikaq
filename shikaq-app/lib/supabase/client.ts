@@ -33,6 +33,8 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     storage: ExpoSecureStoreAdapter,
     autoRefreshToken: true,
     persistSession: true,
-    detectSessionInUrl: false,
+    // Web のみ URL hash の access_token を自動で取り込む (OAuth コールバック処理用)
+    // native ではディープリンクで別経路扱いなので false のまま
+    detectSessionInUrl: Platform.OS === 'web',
   },
 });
