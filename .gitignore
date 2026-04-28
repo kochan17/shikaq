@@ -68,3 +68,6 @@ android/
 
 # Codex / image-2 一時作業ディレクトリ
 /tmp/
+
+# dev.sh が吐く foreground service ログ
+.dev/
