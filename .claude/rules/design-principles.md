@@ -53,7 +53,7 @@
 - **ハプティクス 3種のみ**（使いすぎ禁止）:
   - 選択タップ: `selection`（軽）
   - 正解: `notification.success`
-  - 不正解: `notification.error`
+  - 不正解: `notification.warning`（**`notification.error` は使わない** — 心理的安全性確保のため、Duolingo 系の「ペナルティ感」を回避）
 - 参照: https://developer.apple.com/design/human-interface-guidelines/motion
 
 ## 素材（Liquid Glass / BlurView）
@@ -61,9 +61,9 @@
 - **iOS 26+**: `expo-glass-effect` の `GlassView` を使う（`isLiquidGlassAvailable()` で分岐）
 - **iOS 25 以下 / Android / Web**: `expo-blur` の `BlurView` で近似
 - **Glass-on-Glass 厳禁**: ガラス要素の重ね置きは可読性を壊す
-- 適用対象: Tab Bar / Navigation Bar / Toolbar / Sheet / Popover
-- 避ける場所: 本文コンテンツ領域（問題文・解説の背景には使わない）
-- 参照: https://developer.apple.com/videos/play/wwdc2025/219/ / https://docs.expo.dev/versions/latest/sdk/glass-effect/
+- 適用対象: Tab Bar / Navigation Bar / Toolbar / Sheet / Popover（**chrome only**）
+- **絶対避ける場所**: 問題文・解説の背景（NN/g 報告で **15% time-on-task regression**、可読性が壊れる）
+- 参照: https://developer.apple.com/videos/play/wwdc2025/219/ / https://docs.expo.dev/versions/latest/sdk/glass-effect/ / https://www.nngroup.com/articles/liquid-glass/
 
 ## ナビゲーション
 
@@ -100,6 +100,39 @@
 - 朝5問リマインド + 夜の音声解説クイズ
 - iPad 横持ち・カフェで片手操作を判断基準に
 
+## コピーライティング（日本語）
+
+shikaq の日本語コピーは **アスピレーショナル形（願望・呼びかけ・提案）** で統一。断言形・押し付け形は禁止。
+
+### OK 例
+- 「今日の3問が届きました」（呼びかけ）
+- 「もう少し続けてみよう」（提案）
+- 「7日続いています」（事実陳述）
+- 「合格に近づいています」（願望支持）
+
+### NG 例
+- ❌「私は毎日学ぶ人だ」（断言形 — Atomic Habits の identity 設計を直訳すると押し付けがましい）
+- ❌「今日も Duo と勉強しよう！」（キャラ煽り）
+- ❌「ストリークが消えそう！」（恐怖煽り）
+- ❌「今すぐ学習しないと損する」（FOMO 煽り）
+
+### Tone Map
+- 「スタバで一緒に勉強しよう」的な仲間感
+- 一人称: 使わない（「あなた」「shikaq」も最小限）
+- 感嘆符: 1コピーに最大1個
+- 絵文字: 使わない（Apple HIG の Deference）
+
+## ストリーク・インセンティブ哲学（譲れないライン）
+
+調査結果（Streak Society 批判 / Duolingo 62% 罪悪感 / Apple Fitness watchOS 11 Pause Rings）に基づく:
+
+- **Mastery-anchored で計測**: ストリークは **正答数** で計測する。「レッスン起動回数」「アプリ open 回数」では計測しない（Goodhart's Law 罠回避）
+- **継続中はストリークを大きく見せない**（Caption 1 / 12pt）。**終了時にだけ自己ベスト更新を称える**（Apple Fitness 流）
+- **休息日 Pause を最初から無料提供**（watchOS 11 と同じ思想）
+- **Streak Freeze は手動消費のみがデフォルト**。自動消費する場合は事後通知で透明化（「土曜は Streak Freeze で 7 日継続を保ちました」）
+- **煽り通知禁止**: 「ストリークが消えそう！」「Duo が悲しんでいます」型の通知は絶対作らない
+- **Calm Mode 切替を初期から構造的に持つ**: 試験 1 週間前にリング・通知・バッジ・遊び心アニメを全 off にできる
+
 ## してはいけないこと（アンチパターン）
 
 - ❌ shadcn/ui / Tailwind / Geist / Lucide を shikaq-app に持ち込む（Apple純正から外れる）
@@ -108,6 +141,24 @@
 - ❌ Udemy 風の情報密度（サイドバー詰込み・多数のアクション同時表示）
 - ❌ スタディサプリ風の「教育サービス感」（青×白の硬いトンマナ）
 - ❌ 固定カラー値（`#000000` 等）直書き、セマンティックカラーを経由しない
+- ❌ 時刻連動の背景色変化（Auto Light/Dark Mode と矛盾、System Appearance 尊重）
+- ❌ 学習プロセスの公開 SNS シェア強要（学習結果のシェア = LinkedIn Cert Prep Badge は OK）
+- ❌ 不正解時の `notification.error`（`notification.warning` を使う）
+- ❌ 不正解時の shake / 揺れアニメ（Stripe 流の遊び心は OK だが、shikaq では揺らさない）
+- ❌ 進捗バーの後退（Safe Failure Design）
+- ❌ 匿名ソーシャルグループ・自動マッチング（招待制のみ）
+- ❌ "200-300% 改善" 等の数値マーケコピー（景品表示法リスク、RCT の Cohen's d 0.5-0.9 が rigorous な数字）
+
+## 倫理ルーブリック
+
+新機能・新コピーを実装する前に、`humane-tech-rubric.md` の Four Promises 採点シートを通す:
+
+- Cared For（アクセシビリティ）
+- Present（HIG Deference、注意経済を尊重）
+- Fulfilled（達成体験、Apple Fitness リング流）
+- Connected（任意の学習コミュニティ、強制無し）
+
+採点が3点以下のものは PR レビューで差し戻し or 設計再考。
 
 ## WWDC / HIG 主要参照
 
