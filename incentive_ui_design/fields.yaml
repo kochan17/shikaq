@@ -1,0 +1,107 @@
+fields:
+  # === 基本情報 (3) ===
+  - name: name
+    category: 基本情報
+    description: 対象の名称 (Product/Theory/UI Pattern 等)
+    detail_level: brief
+
+  - name: category
+    category: 基本情報
+    description: Product / Theory / UI Pattern / Ethics / Behavioral Economics のいずれか
+    detail_level: brief
+
+  - name: overview
+    category: 基本情報
+    description: 200字程度の概要、要点のみ
+    detail_level: moderate
+
+  # === 詳細掘り下げ (5) ===
+  - name: originator_or_company
+    category: 詳細掘り下げ
+    description: 提唱者・所属組織・企業 (理論の場合は研究者と所属、製品の場合は企業と創業者)
+    detail_level: brief
+
+  - name: key_resources
+    category: 詳細掘り下げ
+    description: 主要論文・公式ブログ・登壇 URL のリスト (markdown link 形式、最低 5 件)
+    detail_level: moderate
+
+  - name: core_mechanics
+    category: 詳細掘り下げ
+    description: 中身の網羅。理論なら定義・命題・適用条件、製品なら主要施策の動作詳細、UI ならアニメ・タイミング・配置
+    detail_level: detailed
+
+  - name: designer_or_researcher_voice
+    category: 詳細掘り下げ
+    description: Designer/PM/研究者の生の発言 (ブログ・登壇・インタビュー・ニュースレター)。原文に近い形で 3〜5 引用
+    detail_level: detailed
+
+  - name: metrics_or_evidence
+    category: 詳細掘り下げ
+    description: 数字 (DAU/Retention/Conversion/メタ分析の効果量)。出典付き
+    detail_level: moderate
+
+  # === 批判・限界 (3) ===
+  - name: criticisms
+    category: 批判限界
+    description: 反証研究・倫理批判・限界条件 (Overjustification / Novelty Effect / Skinner 批判 等)
+    detail_level: moderate
+
+  - name: failure_cases
+    category: 批判限界
+    description: 廃止された施策・ユーザー不満事例・公開された撤退判断
+    detail_level: moderate
+
+  - name: antipatterns
+    category: 批判限界
+    description: やってはいけない実装パターン (Dark Pattern / Means-Ends Reversal / 規制抵触リスク 等)
+    detail_level: moderate
+
+  # === shikaq 適用 (5) ===
+  - name: applicability_to_shikaq
+    category: shikaq適用
+    description: 20代女性 / iPad 中心 / Apple HIG 全振り / 月額980円 という前提下での具体的翻訳案。HEXAD ユーザータイプ対応も含めて記述
+    detail_level: detailed
+
+  - name: phase_assignment
+    category: shikaq適用
+    description: Phase 1 (3週間) / Phase 2 (4-6週) / Phase 3 (6-8週) のどこに配置すべきか + 理由
+    detail_level: brief
+
+  - name: implementation_size
+    category: shikaq適用
+    description: S / M / L (実装規模見積もり)
+    detail_level: brief
+
+  - name: integration_points
+    category: shikaq適用
+    description: 既存 component (Sidebar/TodayContent/Practice/Summary 等) / DB テーブル / route との接続点
+    detail_level: moderate
+
+  - name: risks
+    category: shikaq適用
+    description: 採用時のリスク (実装難度 / 倫理的懸念 / ペルソナ非適合 / 機能スコープ拡大 等)
+    detail_level: moderate
+
+  # === 評価軸 (4) ===
+  - name: apple_hig_compatibility
+    category: 評価軸
+    description: Apple HIG / Liquid Glass / SF Symbols / Material Symbols デザイン哲学との適合 (compatible / needs_adaptation / conflicts) + rationale
+    detail_level: moderate
+
+  - name: ethical_score
+    category: 評価軸
+    description: Center for Humane Technology 流の倫理評価 (positive / neutral / negative)、燃え尽き・依存性・時間後悔度への影響
+    detail_level: moderate
+
+  - name: evidence_quality
+    category: 評価軸
+    description: エビデンスの質 (rigorous_RCT / observational_study / company_case_study / anecdote / theoretical)
+    detail_level: brief
+
+  - name: localization_fit_japan
+    category: 評価軸
+    description: 日本市場・特に20代女性キャリアアップ層への適合度 (high / medium / low) + rationale
+    detail_level: moderate
+
+uncertain: []  # deep research フェーズで自動入力される

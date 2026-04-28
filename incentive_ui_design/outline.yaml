@@ -1,0 +1,92 @@
+topic: アプリサービスのインセンティブ設計とUI設計、デザインに関して
+
+execution:
+  batch_size: 5
+  items_per_agent: 1
+  output_dir: ./incentive_ui_design/results
+  time_range: since 2022
+
+items:
+  # === Products (5) ===
+  - name: Duolingo
+    category: Product
+    description: ゲーミフィケーション教科書、ストリーク・XP・リーグ・Hook 完備、DAU 5,000万、CURR 改善で DAU 4.5倍
+
+  - name: Khan Academy
+    category: Product
+    description: Mastery Learning + Energy Points が「努力量を測るもの」と明言、Black Hat 意図的回避
+
+  - name: Brilliant
+    category: Product
+    description: 1問ずつインタラクティブ学習、ustwo Rive 協業、Premium $24.99/月、コンテンツ主役の哲学
+
+  - name: スタディサプリ ENGLISH
+    category: Product
+    description: 日本市場、月額1,980円、継続率92%、まなレポ・AI字幕・グランドファーザー条項、20代女性ペルソナ近接
+
+  - name: Anki / FSRS
+    category: Product
+    description: Spaced Repetition の鉄板実装、SM-2 → FSRS-5 で保持率92%・レビュー数 -20-30%
+
+  # === Theories (7) ===
+  - name: Octalysis Framework (Yu-kai Chou)
+    category: Theory
+    description: 8コアドライブ、White Hat (Epic Meaning/Accomplishment/Empowerment) と Black Hat (Scarcity/Unpredictability/Loss) の区別
+
+  - name: Self-Determination Theory (Deci & Ryan)
+    category: Theory
+    description: Autonomy/Competence/Relatedness の3欲求、内発的動機の保護、Overjustification Effect
+
+  - name: Fogg Behavior Model (B=MAP)
+    category: Theory
+    description: Behavior = Motivation × Ability × Prompt、Tiny Habits、Stanford 行動設計
+
+  - name: Hooked Model (Nir Eyal)
+    category: Theory
+    description: Trigger/Action/Variable Reward/Investment の4ステップループ、Skinner 変動比率強化
+
+  - name: Spaced Repetition + Testing Effect
+    category: Theory
+    description: Ebbinghaus 忘却曲線 / Roediger & Karpicke 2006 / Cepeda メタ分析で 200-300% 改善
+
+  - name: HEXAD User Types (Marczewski)
+    category: Theory
+    description: Bartle 拡張、ゲーミフィケーション専用 6 タイプ (Philanthropist/Socializer/Free Spirit/Achiever/Player/Disruptor)
+
+  - name: Atomic Habits (James Clear) Identity-Based
+    category: Theory
+    description: 成果ベース → プロセスベース → アイデンティティベースの3層、Atoms 公式アプリ (MetaLab デザイン)
+
+  # === UI Patterns (6) ===
+  - name: Apple Activity Rings
+    category: UI Pattern
+    description: Move/Exercise/Stand 3リング、Limited Edition バッジ、月末・年次 Awards、140K人 Apple Heart Study
+
+  - name: Streak Design (Quiet vs Aggressive)
+    category: UI Pattern
+    description: Duolingo の煽り型 vs Apple Fitness の引き算型、Streak Freeze 透明性、Streak Society 批判
+
+  - name: Onboarding "First Question Preview"
+    category: UI Pattern
+    description: Canva 猿に帽子方式、tiny + delightfully simple、Skip-able Onboarding (2025 新標準)
+
+  - name: Replay (年鑑型振り返り)
+    category: UI Pattern
+    description: Apple Music Replay (データ深さ・静的) vs Spotify Wrapped (お祭り・動的) の対比
+
+  - name: Haptics & Micro-interactions
+    category: UI Pattern
+    description: Stripe Villar 基準「アニメ切ってもフロー壊れないなら装飾」、SwiftUI 1行実装 (.symbolEffect/.sensoryFeedback)
+
+  - name: Apple Intelligence Personal Context (iOS 26)
+    category: UI Pattern
+    description: Foundation Models で proactive 学習リマインド、on-device personal context、Liquid Glass
+
+  # === Ethics & Behavioral Economics (2) ===
+  - name: Center for Humane Technology
+    category: Ethics
+    description: Time Well Spent、Humane Metrics で評価、76% サイトのダークパターン批判、FTC/DSA 規制リスク
+
+  - name: Endowed Progress + Goal Gradient + Fresh Start
+    category: Behavioral Economics
+    description: スタンプ8枠 vs 10枠 完了率1.8倍 / Hull ラット迷路 ゴール近傍加速 / Wharton 月初・週初の行動変容跳ね
