@@ -1,5 +1,6 @@
 import { useWindowDimensions } from 'react-native';
 import { useRouter } from 'expo-router';
+import Head from 'expo-router/head';
 import { Today } from '../../components/screens/Today';
 import { MobileToday } from '../../components/MobileToday';
 import { screenToPath } from '../../lib/navigation';
@@ -9,8 +10,18 @@ export default function TodayRoute(): React.ReactElement {
   const router = useRouter();
 
   if (width < 768) {
-    return <MobileToday />;
+    return (
+      <>
+        <Head><title>今日 | shikaq</title></Head>
+        <MobileToday />
+      </>
+    );
   }
 
-  return <Today onNavigate={(key) => router.push(screenToPath(key) as never)} />;
+  return (
+    <>
+      <Head><title>今日 | shikaq</title></Head>
+      <Today onNavigate={(key) => router.push(screenToPath(key) as never)} />
+    </>
+  );
 }

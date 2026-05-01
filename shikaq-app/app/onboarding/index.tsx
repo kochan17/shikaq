@@ -1,6 +1,7 @@
 import { View, Text, Pressable, useWindowDimensions, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import Head from 'expo-router/head';
 import { MaterialIcon } from '../../components/MaterialIcon';
 import type { CertificationId } from '../../data/onboarding-questions';
 
@@ -62,6 +63,8 @@ export default function OnboardingIndex(): React.ReactElement {
   }
 
   return (
+    <>
+    <Head><title>shikaq を始める</title></Head>
     <SafeAreaView className="flex-1 bg-systemGroupedBackground">
       <View className="flex-1 px-6 pb-8">
         <View className="flex-row justify-end pt-4 pb-2">
@@ -133,5 +136,6 @@ export default function OnboardingIndex(): React.ReactElement {
         </View>
       </View>
     </SafeAreaView>
+    </>
   );
 }

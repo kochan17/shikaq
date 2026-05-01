@@ -1,5 +1,11 @@
+import Head from 'expo-router/head';
 import { Summary } from '../../components/screens/Summary';
 
 export default function SummaryRoute(): React.ReactElement {
-  return <Summary />;
+  return (
+    <>
+      <Head><title>学習履歴 | shikaq</title></Head>
+      <Summary />
+    </>
+  );
 }
