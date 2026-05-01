@@ -645,6 +645,286 @@ export async function resetPassword(email: string, redirectTo?: string): Promise
   if (error !== null) throw new Error(error.message);
 }
 
+// =============================================================
+// Admin CRUD
+// =============================================================
+
+export interface AdminStats {
+  certifications: number;
+  courses: number;
+  sections: number;
+  lessons: number;
+  questions_draft: number;
+  questions_published: number;
+}
+
+export async function fetchAdminStats(): Promise<AdminStats> {
+  const [certRes, courseRes, sectionRes, lessonRes, draftRes, pubRes] = await Promise.all([
+    supabase.from('certifications').select('id', { count: 'exact', head: true }),
+    supabase.from('courses').select('id', { count: 'exact', head: true }),
+    supabase.from('sections').select('id', { count: 'exact', head: true }),
+    supabase.from('lessons').select('id', { count: 'exact', head: true }),
+    supabase.from('questions').select('id', { count: 'exact', head: true }).eq('status', 'draft'),
+    supabase.from('questions').select('id', { count: 'exact', head: true }).eq('status', 'published'),
+  ]);
+  return {
+    certifications: certRes.count ?? 0,
+    courses: courseRes.count ?? 0,
+    sections: sectionRes.count ?? 0,
+    lessons: lessonRes.count ?? 0,
+    questions_draft: draftRes.count ?? 0,
+    questions_published: pubRes.count ?? 0,
+  };
+}
+
+export interface AdminQuestion {
+  id: string;
+  lesson_id: string;
+  question_text: string;
+  choices: { id: string; text: string }[];
+  correct_choice_id: string | null;
+  explanation: string | null;
+  format: 'multiple_choice' | 'written' | 'cbt';
+  status: 'draft' | 'published';
+  order_index: number;
+  created_at: string;
+}
+
+export async function listAdminQuestions(opts: {
+  status?: 'draft' | 'published' | null;
+  search?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<AdminQuestion[]> {
+  let q = supabase
+    .from('questions')
+    .select('id, lesson_id, question_text, choices, correct_choice_id, explanation, format, status, order_index, created_at')
+    .order('created_at', { ascending: false })
+    .range(opts.offset ?? 0, (opts.offset ?? 0) + (opts.limit ?? 50) - 1);
+
+  if (opts.status !== null && opts.status !== undefined) {
+    q = q.eq('status', opts.status);
+  }
+  if (opts.search !== undefined && opts.search.trim() !== '') {
+    q = q.ilike('question_text', `%${opts.search.trim()}%`);
+  }
+
+  const { data, error } = await q;
+  if (error !== null) throw new Error(`listAdminQuestions failed: ${error.message}`);
+
+  return (data ?? []).map((row) => ({
+    id: row.id as string,
+    lesson_id: row.lesson_id as string,
+    question_text: row.question_text as string,
+    choices: (row.choices as { id: string; text: string }[] | null) ?? [],
+    correct_choice_id: (row.correct_choice_id as string | null) ?? null,
+    explanation: (row.explanation as string | null) ?? null,
+    format: (row.format as 'multiple_choice' | 'written' | 'cbt') ?? 'multiple_choice',
+    status: (row.status as 'draft' | 'published') ?? 'draft',
+    order_index: (row.order_index as number) ?? 0,
+    created_at: row.created_at as string,
+  }));
+}
+
+export async function upsertQuestion(opts: {
+  id?: string;
+  lesson_id: string;
+  question_text: string;
+  choices: { id: string; text: string }[];
+  correct_choice_id: string | null;
+  explanation: string | null;
+  format: 'multiple_choice' | 'written' | 'cbt';
+  status: 'draft' | 'published';
+}): Promise<{ id: string }> {
+  const payload = {
+    lesson_id: opts.lesson_id,
+    question_text: opts.question_text,
+    choices: opts.choices,
+    correct_choice_id: opts.correct_choice_id,
+    explanation: opts.explanation,
+    format: opts.format,
+    status: opts.status,
+  };
+
+  if (opts.id !== undefined) {
+    const { error } = await supabase.from('questions').update(payload).eq('id', opts.id);
+    if (error !== null) throw new Error(`upsertQuestion (update) failed: ${error.message}`);
+    return { id: opts.id };
+  }
+
+  const { data, error } = await supabase
+    .from('questions')
+    .insert(payload)
+    .select('id')
+    .single();
+  if (error !== null) throw new Error(`upsertQuestion (insert) failed: ${error.message}`);
+  return { id: (data as { id: string }).id };
+}
+
+export async function publishQuestion(questionId: string): Promise<void> {
+  const { error } = await supabase
+    .from('questions')
+    .update({ status: 'published' })
+    .eq('id', questionId);
+  if (error !== null) throw new Error(`publishQuestion failed: ${error.message}`);
+}
+
+export async function deleteQuestion(questionId: string): Promise<void> {
+  const { error } = await supabase.from('questions').delete().eq('id', questionId);
+  if (error !== null) throw new Error(`deleteQuestion failed: ${error.message}`);
+}
+
+export interface AdminLesson {
+  id: string;
+  section_id: string;
+  title: string;
+  body: string | null;
+  content_type: 'video' | 'text' | 'audio' | 'quiz';
+  is_published: boolean;
+  order_index: number;
+}
+
+export async function listAdminLessons(opts: {
+  search?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<AdminLesson[]> {
+  let q = supabase
+    .from('lessons')
+    .select('id, section_id, title, body, content_type, is_published, order_index')
+    .order('order_index')
+    .range(opts.offset ?? 0, (opts.offset ?? 0) + (opts.limit ?? 100) - 1);
+
+  if (opts.search !== undefined && opts.search.trim() !== '') {
+    q = q.ilike('title', `%${opts.search.trim()}%`);
+  }
+
+  const { data, error } = await q;
+  if (error !== null) throw new Error(`listAdminLessons failed: ${error.message}`);
+  return (data ?? []) as AdminLesson[];
+}
+
+export async function upsertLesson(opts: {
+  id?: string;
+  section_id: string;
+  title: string;
+  body: string | null;
+  content_type: 'video' | 'text' | 'audio' | 'quiz';
+  is_published: boolean;
+}): Promise<{ id: string }> {
+  const payload = {
+    section_id: opts.section_id,
+    title: opts.title,
+    body: opts.body,
+    content_type: opts.content_type,
+    is_published: opts.is_published,
+  };
+
+  if (opts.id !== undefined) {
+    const { error } = await supabase.from('lessons').update(payload).eq('id', opts.id);
+    if (error !== null) throw new Error(`upsertLesson (update) failed: ${error.message}`);
+    return { id: opts.id };
+  }
+
+  const { data, error } = await supabase.from('lessons').insert(payload).select('id').single();
+  if (error !== null) throw new Error(`upsertLesson (insert) failed: ${error.message}`);
+  return { id: (data as { id: string }).id };
+}
+
+export async function listAdminSections(): Promise<
+  { id: string; course_id: string; title: string; is_published: boolean; order_index: number }[]
+> {
+  const { data, error } = await supabase
+    .from('sections')
+    .select('id, course_id, title, is_published, order_index')
+    .order('order_index');
+  if (error !== null) throw new Error(`listAdminSections failed: ${error.message}`);
+  return (data ?? []) as {
+    id: string;
+    course_id: string;
+    title: string;
+    is_published: boolean;
+    order_index: number;
+  }[];
+}
+
+export async function upsertSection(opts: {
+  id?: string;
+  course_id: string;
+  title: string;
+  is_published: boolean;
+  order_index?: number;
+}): Promise<{ id: string }> {
+  const payload = {
+    course_id: opts.course_id,
+    title: opts.title,
+    is_published: opts.is_published,
+    order_index: opts.order_index ?? 0,
+  };
+
+  if (opts.id !== undefined) {
+    const { error } = await supabase.from('sections').update(payload).eq('id', opts.id);
+    if (error !== null) throw new Error(`upsertSection failed: ${error.message}`);
+    return { id: opts.id };
+  }
+
+  const { data, error } = await supabase.from('sections').insert(payload).select('id').single();
+  if (error !== null) throw new Error(`upsertSection (insert) failed: ${error.message}`);
+  return { id: (data as { id: string }).id };
+}
+
+export async function listAdminCourses(): Promise<
+  {
+    id: string;
+    certification_id: string;
+    title: string;
+    description: string | null;
+    is_published: boolean;
+    order_index: number;
+  }[]
+> {
+  const { data, error } = await supabase
+    .from('courses')
+    .select('id, certification_id, title, description, is_published, order_index')
+    .order('order_index');
+  if (error !== null) throw new Error(`listAdminCourses failed: ${error.message}`);
+  return (data ?? []) as {
+    id: string;
+    certification_id: string;
+    title: string;
+    description: string | null;
+    is_published: boolean;
+    order_index: number;
+  }[];
+}
+
+export async function upsertCourse(opts: {
+  id?: string;
+  certification_id: string;
+  title: string;
+  description: string | null;
+  is_published: boolean;
+  order_index?: number;
+}): Promise<{ id: string }> {
+  const payload = {
+    certification_id: opts.certification_id,
+    title: opts.title,
+    description: opts.description,
+    is_published: opts.is_published,
+    order_index: opts.order_index ?? 0,
+  };
+
+  if (opts.id !== undefined) {
+    const { error } = await supabase.from('courses').update(payload).eq('id', opts.id);
+    if (error !== null) throw new Error(`upsertCourse failed: ${error.message}`);
+    return { id: opts.id };
+  }
+
+  const { data, error } = await supabase.from('courses').insert(payload).select('id').single();
+  if (error !== null) throw new Error(`upsertCourse (insert) failed: ${error.message}`);
+  return { id: (data as { id: string }).id };
+}
+
 export async function startCheckout(): Promise<string> {
   const { data, error } = await supabase.functions.invoke<{ url: string }>(
     'create-checkout-session',
