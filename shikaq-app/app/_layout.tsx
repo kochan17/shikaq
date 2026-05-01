@@ -1,5 +1,6 @@
 import '../global.css';
 import { useEffect } from 'react';
+import { initPlausible } from '../lib/analytics';
 import { Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -35,8 +36,15 @@ function useWebFonts(): void {
   }, []);
 }
 
+function usePlausible(): void {
+  useEffect(() => {
+    initPlausible();
+  }, []);
+}
+
 function RootLayout(): React.ReactElement {
   useWebFonts();
+  usePlausible();
   return (
     <SafeAreaProvider>
       <StatusBar style="auto" />
