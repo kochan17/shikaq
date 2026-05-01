@@ -232,7 +232,7 @@ export function Profile(): React.ReactElement {
       </View>
 
       {/* Danger zone */}
-      <View className="bg-systemBackground rounded-2xl hairline-border p-6">
+      <View className="bg-systemBackground rounded-2xl hairline-border p-6 mb-4">
         <Text className="text-[16px] font-semibold text-label mb-3">アカウント</Text>
         <Pressable
           onPress={() => {
@@ -242,6 +242,31 @@ export function Profile(): React.ReactElement {
         >
           <MaterialIcon name="logout" size={20} className="text-systemRed" />
           <Text className="text-[14px] font-semibold text-systemRed">ログアウト</Text>
+        </Pressable>
+      </View>
+
+      {/* Legal links */}
+      <View className="gap-1 pb-4">
+        <Pressable
+          onPress={() => router.push('/legal/terms' as never)}
+          className="flex-row items-center justify-between py-3 px-2"
+        >
+          <Text className="text-[13px] text-secondaryLabel">利用規約</Text>
+          <MaterialIcon name="chevron_right" size={16} className="text-tertiaryLabel" />
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/legal/privacy' as never)}
+          className="flex-row items-center justify-between py-3 px-2"
+        >
+          <Text className="text-[13px] text-secondaryLabel">プライバシーポリシー</Text>
+          <MaterialIcon name="chevron_right" size={16} className="text-tertiaryLabel" />
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/legal/tokushoho' as never)}
+          className="flex-row items-center justify-between py-3 px-2"
+        >
+          <Text className="text-[13px] text-secondaryLabel">特定商取引法に基づく表示</Text>
+          <MaterialIcon name="chevron_right" size={16} className="text-tertiaryLabel" />
         </Pressable>
       </View>
     </ScrollView>

@@ -8,14 +8,16 @@ import {
   Platform,
   useWindowDimensions,
 } from 'react-native';
+import * as AppleAuthentication from 'expo-apple-authentication';
 import { useRouter } from 'expo-router';
 import { signInWithEmail, signUpWithEmail } from '../../lib/supabase/auth';
 import { resetPassword } from '../../lib/supabase/queries';
-import { supabase } from '../../lib/supabase/client';
 import { MaterialIcon } from '../MaterialIcon';
 import { GoogleIcon, AppleIcon } from '../BrandIcon';
 import { Typewriter } from '../Typewriter';
 import { translateAuthError } from '../../lib/auth/errorMessages';
+import { signInWithApple } from '../../lib/auth/appleSignIn';
+import { supabase } from '../../lib/supabase/client';
 
 type Mode = 'sign-in' | 'sign-up' | 'forgot';
 
@@ -63,7 +65,7 @@ export function Login(): React.ReactElement {
     }
   }
 
-  async function handleSSO(provider: 'google' | 'apple' | 'facebook'): Promise<void> {
+  async function handleSSO(provider: 'google'): Promise<void> {
     setError(null);
     setBusy(true);
     try {
@@ -77,6 +79,19 @@ export function Login(): React.ReactElement {
       if (signInError !== null) throw signInError;
     } catch (e) {
       setError(e instanceof Error ? e.message : 'OAuth failed');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleApple(): Promise<void> {
+    setError(null);
+    setBusy(true);
+    try {
+      const result = await signInWithApple();
+      if (result.error !== null) throw result.error;
+    } catch (e) {
+      setError(translateAuthError(e));
     } finally {
       setBusy(false);
     }
@@ -254,8 +269,19 @@ export function Login(): React.ReactElement {
         {mode === 'sign-up' && (
           <Text className="text-[11px] text-secondaryLabel leading-[1.5] mb-4">
             登録すると、shikaq の{' '}
-            <Text className="text-systemBlue">利用規約</Text>と
-            <Text className="text-systemBlue">プライバシーポリシー</Text>
+            <Text
+              className="text-systemBlue"
+              onPress={() => router.push('/legal/terms' as never)}
+            >
+              利用規約
+            </Text>
+            と
+            <Text
+              className="text-systemBlue"
+              onPress={() => router.push('/legal/privacy' as never)}
+            >
+              プライバシーポリシー
+            </Text>
             に同意したことになります。
           </Text>
         )}
@@ -279,14 +305,24 @@ export function Login(): React.ReactElement {
                 <GoogleIcon size={18} />
                 <Text className="text-[14px] font-semibold text-label">Google で続ける</Text>
               </Pressable>
-              <Pressable
-                onPress={() => void handleSSO('apple')}
-                className="flex-row items-center justify-center gap-3 h-[48px] rounded-full bg-label"
-                disabled={busy}
-              >
-                <AppleIcon size={18} color="#FFFFFF" />
-                <Text className="text-[14px] font-semibold text-white">Apple で続ける</Text>
-              </Pressable>
+              {Platform.OS === 'ios' ? (
+                <AppleAuthentication.AppleAuthenticationButton
+                  buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
+                  buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
+                  cornerRadius={26}
+                  style={{ width: '100%', height: 48 }}
+                  onPress={() => void handleApple()}
+                />
+              ) : (
+                <Pressable
+                  onPress={() => void handleApple()}
+                  className="flex-row items-center justify-center gap-3 h-[48px] rounded-full bg-label"
+                  disabled={busy}
+                >
+                  <AppleIcon size={18} color="#FFFFFF" />
+                  <Text className="text-[14px] font-semibold text-white">Apple で続ける</Text>
+                </Pressable>
+              )}
             </View>
           </>
         )}
