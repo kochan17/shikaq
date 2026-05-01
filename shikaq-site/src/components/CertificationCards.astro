@@ -1,0 +1,99 @@
+---
+const certs = [
+  {
+    id: 'ip',
+    name: 'ITパスポート',
+    abbr: 'IP',
+    tagline: 'すべてのビジネスパーソンの基礎',
+    color: 'var(--color-ip)',
+    bg: 'rgba(0, 122, 255, 0.06)',
+    topics: ['ストラテジ系', 'マネジメント系', 'テクノロジ系'],
+  },
+  {
+    id: 'fe',
+    name: '基本情報技術者',
+    abbr: 'FE',
+    tagline: 'エンジニアとしての登竜門',
+    color: 'var(--color-fe)',
+    bg: 'rgba(52, 199, 89, 0.06)',
+    topics: ['科目A 多肢選択', '科目B アルゴリズム', 'In-App Playground'],
+  },
+  {
+    id: 'spi',
+    name: 'SPI',
+    abbr: 'SPI',
+    tagline: '就活・転職に欠かせない適性検査',
+    color: 'var(--color-spi)',
+    bg: 'rgba(255, 149, 0, 0.06)',
+    topics: ['言語問題', '非言語問題', '性格検査対策'],
+  },
+  {
+    id: 'boki',
+    name: '簿記 2級',
+    abbr: '簿記',
+    tagline: '財務の読み書き、一生の武器に',
+    color: 'var(--color-boki)',
+    bg: 'rgba(255, 59, 48, 0.06)',
+    topics: ['商業簿記', '工業簿記', '仕訳トレーニング'],
+  },
+];
+---
+
+<section id="certifications" class="py-32 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-4" style="color: var(--color-label);">
+        4つの資格に対応
+      </h2>
+      <p class="text-xl" style="color: var(--color-secondary-label);">
+        どれも、分厚い参考書がいらない。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {certs.map((cert) => (
+        <article
+          class="rounded-3xl p-8 transition-transform duration-300 hover:scale-[1.01]"
+          style={`background: ${cert.bg};`}
+        >
+          <div class="flex items-start justify-between mb-6">
+            <div
+              class="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-sm font-bold"
+              style={`background: ${cert.color};`}
+            >
+              {cert.abbr.length > 2 ? cert.abbr.slice(0, 2) : cert.abbr}
+            </div>
+          </div>
+          <h3 class="text-2xl font-semibold mb-2 tracking-tight" style="color: var(--color-label);">
+            {cert.name}
+          </h3>
+          <p class="text-base mb-6" style="color: var(--color-secondary-label);">
+            {cert.tagline}
+          </p>
+          <ul class="space-y-2">
+            {cert.topics.map((topic) => (
+              <li class="flex items-center gap-2 text-sm" style="color: var(--color-secondary-label);">
+                <span class="w-1 h-1 rounded-full flex-shrink-0" style={`background: ${cert.color};`}></span>
+                {topic}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- JSON-LD for each certification -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "EducationalOccupationalProgram", "position": 1, "name": "ITパスポート対策コース", "provider": {"@type": "Organization", "name": "shikaq"}},
+      {"@type": "EducationalOccupationalProgram", "position": 2, "name": "基本情報技術者対策コース", "provider": {"@type": "Organization", "name": "shikaq"}},
+      {"@type": "EducationalOccupationalProgram", "position": 3, "name": "SPI対策コース", "provider": {"@type": "Organization", "name": "shikaq"}},
+      {"@type": "EducationalOccupationalProgram", "position": 4, "name": "簿記2級対策コース", "provider": {"@type": "Organization", "name": "shikaq"}}
+    ]
+  }
+</script>

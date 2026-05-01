@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import CertificationCards from '../components/CertificationCards.astro';
+import Features from '../components/Features.astro';
+import Pricing from '../components/Pricing.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="shikaq — iPad で資格を取る、新しい学習サブスク"
+  description="ITパスポート・基本情報技術者・SPI・簿記2級に対応した資格学習サブスク。分厚い参考書はいらない。月額980円（税込）。"
+>
+  <Nav />
+  <main>
+    <Hero />
+    <CertificationCards />
+    <Features />
+    <Pricing />
+    <CTA />
+  </main>
+  <Footer />
+</Base>

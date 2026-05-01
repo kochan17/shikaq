@@ -1,0 +1,54 @@
+---
+const included = [
+  '4資格すべてのコンテンツが解放',
+  '毎朝の5問リマインド',
+  '夜の音声解説クイズ',
+  'In-App Playground（基本情報科目B）',
+  'AI Q&A（疑問をすぐに解消）',
+  'ブックマーク・弱点管理',
+  'iPad / iPhone / ブラウザで同期',
+];
+---
+
+<section id="pricing" class="py-32 px-6">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-4" style="color: var(--color-label);">
+      シンプルな料金
+    </h2>
+    <p class="text-xl mb-16" style="color: var(--color-secondary-label);">
+      1プランのみ。4資格すべてが使える。
+    </p>
+
+    <div class="rounded-3xl p-10 text-left" style="background: var(--color-secondary-background);">
+      <div class="flex items-baseline gap-1 mb-2">
+        <span class="text-6xl font-semibold tracking-tight" style="color: var(--color-label);">¥980</span>
+        <span class="text-xl" style="color: var(--color-secondary-label);">/月（税込）</span>
+      </div>
+      <p class="text-base mb-8" style="color: var(--color-secondary-label);">
+        まず7日間、無料でお試しいただけます。
+      </p>
+
+      <ul class="space-y-3 mb-10">
+        {included.map((item) => (
+          <li class="flex items-center gap-3 text-base" style="color: var(--color-label);">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="10" fill="color-mix(in srgb, var(--color-tint) 12%, transparent)" />
+              <path d="M6 10l3 3 5-5" stroke="var(--color-tint)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href="https://shikaq-app.vercel.app/onboarding"
+        class="brand-gradient text-white block w-full text-center px-8 py-4 rounded-2xl text-lg font-semibold tracking-tight transition-transform duration-200 hover:scale-[1.01] active:scale-[0.98]"
+      >
+        無料で始める
+      </a>
+      <p class="text-xs text-center mt-4" style="color: var(--color-tertiary-label);">
+        クレジットカード登録なしでも7日間お試しいただけます
+      </p>
+    </div>
+  </div>
+</section>

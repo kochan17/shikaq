@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-from: #0600FF;
+  --color-brand-to: #7A0085;
+  --color-label: #1d1d1f;
+  --color-secondary-label: #6e6e73;
+  --color-tertiary-label: #aeaeb2;
+  --color-system-background: #ffffff;
+  --color-secondary-background: #f5f5f7;
+  --color-system-fill: #e8e8ed;
+  --color-separator: rgba(0,0,0,0.08);
+  --color-tint: #0600FF;
+
+  --color-ip: #007AFF;
+  --color-fe: #34C759;
+  --color-spi: #FF9500;
+  --color-boki: #FF3B30;
+}
+
+@layer base {
+  html {
+    font-family: -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "SF Pro Text", BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--color-system-background);
+    color: var(--color-label);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .brand-gradient {
+    background: linear-gradient(135deg, var(--color-brand-from), var(--color-brand-to));
+  }
+
+  .brand-gradient-text {
+    background: linear-gradient(135deg, var(--color-brand-from), var(--color-brand-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(26px) saturate(180%);
+    -webkit-backdrop-filter: blur(26px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.6);
+  }
+}

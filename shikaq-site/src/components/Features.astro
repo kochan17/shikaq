@@ -1,0 +1,64 @@
+---
+const features = [
+  {
+    icon: 'rings',
+    label: 'Apple Fitness 風の学習リング',
+    heading: '毎日の進捗が、目に見える。',
+    body: '問題数・正答率・学習時間の3リングが積み上がる。数字ではなく、色とかたちで今日の自分を把握できる。',
+    accent: 'var(--color-ip)',
+  },
+  {
+    icon: 'audio',
+    label: '夜の音声解説クイズ',
+    heading: '眠る前の5分で、定着する。',
+    body: '解説音声がバックグラウンド再生される。ロック画面から操作できるので、画面を見なくていい。',
+    accent: 'var(--color-spi)',
+  },
+  {
+    icon: 'practice',
+    label: '集中モード問題演習',
+    heading: '問題文だけ。余計なものは全部消える。',
+    body: '1画面1問。選択肢4つ。それ以外は何もない。参考書と同じ密度の情報を、スマートフォンで実現した。',
+    accent: 'var(--color-fe)',
+  },
+  {
+    icon: 'playground',
+    label: 'In-App Playground（基本情報）',
+    heading: 'コードは、アプリの中で動かす。',
+    body: '基本情報技術者の科目Bは実技が問われる。環境構築不要、アプリ内でコードを書いて即実行。',
+    accent: 'var(--color-fe)',
+  },
+];
+---
+
+<section id="features" class="py-32 px-6" style="background: var(--color-secondary-background);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-4" style="color: var(--color-label);">
+        学習体験を、再設計した。
+      </h2>
+      <p class="text-xl" style="color: var(--color-secondary-label);">
+        Udemy でも、参考書でも、予備校でもない。<br />shikaq だけの体験。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {features.map((f) => (
+        <div class="rounded-3xl p-8" style="background: var(--color-system-background);">
+          <div
+            class="inline-flex text-xs font-semibold px-3 py-1 rounded-full mb-6"
+            style={`background: color-mix(in srgb, ${f.accent} 10%, transparent); color: ${f.accent};`}
+          >
+            {f.label}
+          </div>
+          <h3 class="text-2xl font-semibold mb-3 tracking-tight leading-snug" style="color: var(--color-label);">
+            {f.heading}
+          </h3>
+          <p class="text-base leading-relaxed" style="color: var(--color-secondary-label);">
+            {f.body}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
