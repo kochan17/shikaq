@@ -203,4 +203,5 @@ lib/
 - **iOS App Store**: 当面は Apple IAP（Small Business Program 15%）想定。日本 MSCA の外部リンク誘導は要観察
 - **エラー監視**: Sentry（React Native）
 - **メール**: 開発中は Inbucket（`http://localhost:54324`）で受信。本番は Supabase の SMTP 設定で外部送信サービスを指定
+- **Apple Sign In**: iOS 実装は `expo-apple-authentication`（`AppleAuthenticationButton` 使用が審査要件）、Web は Supabase OAuth flow（`signInWithOAuth({ provider: 'apple' })`）。ロジックは `lib/auth/appleSignIn.ts` に集約
 - **ドメイン固有ルール**: `.claude/rules/` 参照
