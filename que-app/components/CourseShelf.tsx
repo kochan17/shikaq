@@ -56,6 +56,7 @@ export function CourseShelf({
               totalLessons={course.total_lessons}
               completedLessons={course.completed_lessons}
               dominantContentType={dominantType}
+              thumbnailUrl={course.thumbnail_url}
               onPress={onCoursePress}
             />
           );

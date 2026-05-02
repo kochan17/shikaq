@@ -16,7 +16,7 @@ insert into public.certifications (slug, name, description, category, is_publish
 with c as (
   select id, slug from public.certifications
 )
-insert into public.courses (certification_id, title, description, is_published, order_index)
+insert into public.courses (certification_id, title, description, thumbnail_url, is_published, order_index)
 select c.id,
        case c.slug
          when 'ip'   then 'IT パスポート 標準コース'
@@ -25,6 +25,12 @@ select c.id,
          when 'boki' then '簿記2級 標準コース'
        end,
        'Que の標準カリキュラム',
+       case c.slug
+         when 'ip'   then 'course-ip.png'
+         when 'fe'   then 'course-fe.png'
+         when 'spi'  then 'course-spi.png'
+         when 'boki' then 'course-boki.png'
+       end,
        true, 1
   from c;
 

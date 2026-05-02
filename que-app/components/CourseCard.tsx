@@ -1,6 +1,7 @@
-import { Pressable, Text, View, useWindowDimensions } from 'react-native';
+import { Image, Pressable, Text, View, useWindowDimensions } from 'react-native';
 import { useState } from 'react';
 import { MaterialIcon } from './MaterialIcon';
+import { resolveCourseThumbnail } from '../lib/courseThumbnails';
 
 type CourseStatus = 'not_started' | 'in_progress' | 'completed';
 
@@ -78,6 +79,7 @@ interface CourseCardProps {
   totalLessons: number;
   completedLessons: number;
   dominantContentType?: string;
+  thumbnailUrl?: string | null;
   onPress: (id: string) => void;
 }
 
@@ -89,6 +91,7 @@ export function CourseCard({
   totalLessons,
   completedLessons,
   dominantContentType = 'text',
+  thumbnailUrl,
   onPress,
 }: CourseCardProps): React.ReactElement {
   const { width } = useWindowDimensions();
@@ -98,6 +101,7 @@ export function CourseCard({
   const cardHeight = isTablet ? 220 : 196;
 
   const visual = CERT_VISUALS[certSlug] ?? FALLBACK_VISUAL;
+  const thumbnail = resolveCourseThumbnail(thumbnailUrl);
   const [hovered, setHovered] = useState(false);
 
   const status: CourseStatus =
@@ -129,6 +133,23 @@ export function CourseCard({
           }}
           className={visual.tintClass}
         >
+          {/* Thumbnail image (if available) — Apple Books cover style */}
+          {thumbnail !== null && (
+            <Image
+              source={thumbnail}
+              resizeMode="cover"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          )}
+
           {/* Top progress bar — hairline Apple Podcasts style */}
           {status === 'in_progress' && (
             <View style={{ height: 3, width: '100%', backgroundColor: 'rgba(0,0,0,0.08)' }}>
@@ -146,14 +167,17 @@ export function CourseCard({
             <View style={{ height: 3, width: '100%' }} className={visual.accentClass} />
           )}
 
-          {/* Icon centered */}
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <MaterialIcon
-              name={iconName}
-              size={isTablet ? 48 : 40}
-              className={`${visual.iconColorClass} opacity-25`}
-            />
-          </View>
+          {/* Icon fallback (only when no thumbnail) */}
+          {thumbnail === null && (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <MaterialIcon
+                name={iconName}
+                size={isTablet ? 48 : 40}
+                className={`${visual.iconColorClass} opacity-25`}
+              />
+            </View>
+          )}
+          {thumbnail !== null && <View style={{ flex: 1 }} />}
 
           {/* Bottom section with status badge */}
           <View style={{ padding: 10, gap: 6 }}>
