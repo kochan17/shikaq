@@ -1,11 +1,11 @@
-# shikaq E2E Tests
+# Que E2E Tests
 
-Playwright を使った E2E テスト。`shikaq-app` とは依存を分離した独立パッケージ。
+Playwright を使った E2E テスト。`que-app` とは依存を分離した独立パッケージ。
 
 ## 前提
 
 - Node.js 20+
-- shikaq-app の dev サーバーが `http://localhost:8081` で起動していること
+- que-app の dev サーバーが `http://localhost:8081` で起動していること
 
 ## セットアップ（初回のみ）
 
@@ -19,7 +19,7 @@ npx playwright install chromium
 
 ```bash
 # 1. 別ターミナルで Expo web を起動
-cd shikaq-app
+cd que-app
 EXPO_PUBLIC_DEV_BYPASS_AUTH=true npm run web
 
 # 2. テスト実行
@@ -43,12 +43,12 @@ npm run report                    # 最後の HTML レポートを開く
 
 ## Today 系テストを有効化する手順
 
-1. `shikaq-app/.env` に `EXPO_PUBLIC_DEV_BYPASS_AUTH=true` を設定
+1. `que-app/.env` に `EXPO_PUBLIC_DEV_BYPASS_AUTH=true` を設定
 2. `today.spec.ts` の `test.skip(` を `test(` に変更
 
 ## 環境変数
 
 | 変数 | 既定値 | 説明 |
 |---|---|---|
-| `SHIKAQ_BASE_URL` | `http://localhost:8081` | テスト対象の URL（CI で上書き） |
+| `QUE_BASE_URL` | `http://localhost:8081` | テスト対象の URL（CI で上書き） |
 | `CI` | — | 設定されると retries=2 が有効になる |

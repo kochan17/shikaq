@@ -1,6 +1,6 @@
 # Humane Tech Rubric
 
-> Center for Humane Technology の **Four Promises** を shikaq の設計判断に組み込むための採点シート。
+> Center for Humane Technology の **Four Promises** を Que の設計判断に組み込むための採点シート。
 > 出典: https://www.buildinghumanetech.com/ / https://www.humanetech.com/
 
 新機能・新コピー・新通知・新インセンティブを実装する前に、このルーブリックを通す。

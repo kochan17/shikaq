@@ -1,11 +1,11 @@
-# Design System: shikaq
+# Design System: Que
 
-**Project:** shikaq — Japanese certification study app
+**Project:** Que — Japanese certification study app
 **Stitch Project ID:** `16596896957741615778`
 **Design System Asset ID:** `assets/17342615687936833569`
 **Design Philosophy:** "If Apple made a certification study app." Calm, premium, content-first.
 
-> 詳細は `/Users/kotaishida/projects/personal/shikaq/.claude/rules/design-principles.md` を参照。このファイルは Stitch での生成・編集に特化した短縮版。
+> 詳細は `/Users/kotaishida/projects/personal/que/.claude/rules/design-principles.md` を参照。このファイルは Stitch での生成・編集に特化した短縮版。
 
 ---
 
@@ -76,7 +76,7 @@
 
 ## 6. Screen → Apple Native Mapping
 
-| shikaq screen | Apple native reference | Key pattern |
+| Que screen | Apple native reference | Key pattern |
 |---|---|---|
 | Home / Today | Apple News+ (Today tab) | Full-bleed featured + density feed |
 | Course library | Apple Books | Horizontal shelves + cover cards |

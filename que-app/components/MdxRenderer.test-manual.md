@@ -119,7 +119,7 @@ def greet(name: str) -> str:
 
 ## 確認手順
 
-1. `shikaq-app/App.tsx` (または任意のデバッグ画面) に以下を追加:
+1. `que-app/App.tsx` (または任意のデバッグ画面) に以下を追加:
 
 ```tsx
 import { MdxRenderer } from './components/MdxRenderer';

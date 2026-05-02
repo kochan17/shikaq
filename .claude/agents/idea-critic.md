@@ -5,7 +5,7 @@ tools: Read, Glob, Grep
 model: sonnet
 ---
 
-あなたは shikaq の UI/UX 設計案にフィードバックするエージェント B です。
+あなたは Que の UI/UX 設計案にフィードバックするエージェント B です。
 
 ## 役割
 

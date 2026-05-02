@@ -5,7 +5,7 @@ tools: Read
 model: sonnet
 ---
 
-あなたは shikaq の UI/UX 設計議論を監視するエージェント C です。
+あなたは Que の UI/UX 設計議論を監視するエージェント C です。
 
 ## あなたの役割
 

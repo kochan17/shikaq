@@ -1,6 +1,6 @@
 @AGENTS.md
 
-# shikaq — スマホ完結の資格学習サブスク
+# Que — スマホ完結の資格学習サブスク
 
 **「Apple が資格学習アプリを作ったらこうなる」** を唯一のデザイン基準にする、タブレット完結の資格学習サブスク。月額980円。
 
@@ -43,11 +43,11 @@
 ## Workspace Layout (monorepo)
 
 ```
-shikaq/
-├── shikaq-app/      # モバイルアプリ本体 (Expo SDK 55, NativeWind 4, Expo Router)
+que/
+├── que-app/      # モバイルアプリ本体 (Expo SDK 55, NativeWind 4, Expo Router)
 ├── supabase/        # Supabase ローカル環境 (config.toml / migrations / seed.sql)
-├── shikaq-api/      # （オプション）Stripe webhook 等の薄い API。当面 Supabase Edge Functions で代替
-├── shikaq-site/     # ランディングページ (marketing、未着手)
+├── que-api/      # （オプション）Stripe webhook 等の薄い API。当面 Supabase Edge Functions で代替
+├── que-site/     # ランディングページ (marketing、未着手)
 ├── .stitch/         # Stitch デザイン資産 (DESIGN.md / 画面 PNG)
 ├── .claude/rules/   # ドメイン固有ルール (design-principles.md / db-schema.md)
 ├── CLAUDE.md        # 本ファイル (workspace 共通)
@@ -128,14 +128,14 @@ supabase functions serve --env-file supabase/functions/.env
   --forward-to localhost:54321/functions/v1/stripe-webhook
 
 # 4. Expo Web dev server
-cd shikaq-app && npm run web
+cd que-app && npm run web
 ```
 
-開発時は `shikaq-app/.env` の `EXPO_PUBLIC_DEV_BYPASS_AUTH=true` で Supabase Auth をスキップして画面確認可能。実 Auth を試すときは false に。本番は削除。
+開発時は `que-app/.env` の `EXPO_PUBLIC_DEV_BYPASS_AUTH=true` で Supabase Auth をスキップして画面確認可能。実 Auth を試すときは false に。本番は削除。
 
 ## コンテンツ運用フロー（アプリ内 Admin LMS）
 
-shikaq は **アプリ内に運営者向け admin ページを持つシンプルな LMS** として構築する。Obsidian や外部 CMS は使わず、すべてアプリ内から編集する。
+Que は **アプリ内に運営者向け admin ページを持つシンプルな LMS** として構築する。Obsidian や外部 CMS は使わず、すべてアプリ内から編集する。
 
 ```
 運営者（profiles.role = 'admin' のユーザー）がアプリにログイン
@@ -157,7 +157,7 @@ Sidebar に表示される [Admin] メニューから:
 
 `embeddings` テーブルは将来の RAG（公開記事を踏まえた AI Q&A）拡張用に残してあるが、現フェーズでは未使用。
 
-## App Architecture (shikaq-app/)
+## App Architecture (que-app/)
 
 Expo Router (file-based) 構成。エントリは `expo-router/entry`、AuthProvider は `app/_layout.tsx`。
 
@@ -196,7 +196,7 @@ lib/
 - **タブレット判定**: `useWindowDimensions` で `width >= 768`
 - **認証セッション**: Supabase Auth が JWT を `expo-secure-store` (native) / `localStorage` (web) に保存
 - **DB マイグレーション**: `supabase migration new <name>` で `supabase/migrations/<timestamp>_<name>.sql` 作成。`supabase db reset` で適用
-- **DB 型**: `supabase gen types typescript --local > shikaq-app/types/database.ts` で自動生成
+- **DB 型**: `supabase gen types typescript --local > que-app/types/database.ts` で自動生成
 - **API 通信**: 基本は `@supabase/supabase-js` でクライアントから直接。RLS で守る。Stripe Webhook 等のサーバ処理は Supabase Edge Functions
 - **RLS**: 全テーブルで RLS 有効化が必須
 - **決済**: Stripe Billing でサブスクリプション管理。日本のインボイス対応は Stripe Tax 自動。Webhook は Edge Functions で受ける

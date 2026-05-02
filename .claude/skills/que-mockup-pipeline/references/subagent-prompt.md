@@ -4,17 +4,17 @@
 
 ---
 
-shikaq の「<画面名>」画面を image-2 で生成する。Home 画面 `/Users/kotaishida/projects/personal/shikaq/.stitch/designs/home-desktop-final.png` と揃ったデザイン言語・サイドバー・トーンで。
+Que の「<画面名>」画面を image-2 で生成する。Home 画面 `/Users/kotaishida/projects/personal/que/.stitch/designs/home-desktop-final.png` と揃ったデザイン言語・サイドバー・トーンで。
 
 ## やること
 
 1. Codex CLI (`codex exec`) を起動
 2. **Codex 組み込みの `image_gen` edit パスを使う**（OpenAI API 直叩きは sandbox DNS でブロックされる。Home 参照画像を conversation context にロードして image-2 の edit として通すルートを使う。`client.images.edit` 直叩きや `gpt-image-2` CLI は `APIConnectionError` で落ちる）
 3. 以下のファイルを Codex に読ませる:
-   - `/Users/kotaishida/projects/personal/shikaq/.stitch/prompts-screens.md` ← §共通プリアンブル と §<番号> <画面名> を使う
-   - `/Users/kotaishida/projects/personal/shikaq/.stitch/designs/home-desktop-final.png` ← 参照画像
+   - `/Users/kotaishida/projects/personal/que/.stitch/prompts-screens.md` ← §共通プリアンブル と §<番号> <画面名> を使う
+   - `/Users/kotaishida/projects/personal/que/.stitch/designs/home-desktop-final.png` ← 参照画像
 4. 「共通プリアンブル + §<番号>」を結合したプロンプトで生成
-5. `/Users/kotaishida/projects/personal/shikaq/.stitch/designs/<screen-slug>-<form>-final.png` に保存
+5. `/Users/kotaishida/projects/personal/que/.stitch/designs/<screen-slug>-<form>-final.png` に保存
 6. ファイル確認し、パスとサイズを報告
 
 ## 注意
