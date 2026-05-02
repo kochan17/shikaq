@@ -3,7 +3,7 @@
 // .env (function-scoped):
 //   STRIPE_SECRET_KEY    - sk_test_...
 //   STRIPE_PRICE_ID      - 月額 ¥980 サブスクの Price ID
-//   APP_URL              - http://localhost:8081 (dev) / https://shikaq.app (prod)
+//   APP_URL              - http://localhost:8081 (dev) / https://que.app (prod)
 
 // @ts-expect-error Deno runtime import
 import Stripe from 'https://esm.sh/stripe@18?target=denonext';

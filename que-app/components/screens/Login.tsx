@@ -101,10 +101,10 @@ export function Login(): React.ReactElement {
     mode === 'sign-in' ? 'ログイン' : mode === 'sign-up' ? '続ける' : 'リンクを送る';
   const heading =
     mode === 'sign-in'
-      ? 'shikaq'
+      ? 'Que'
       : mode === 'sign-up'
         ? 'メールアドレスでサインアップ'
-        : 'shikaq';
+        : 'Que';
   const subtitle =
     mode === 'sign-in'
       ? 'おかえりなさい。'
@@ -131,7 +131,7 @@ export function Login(): React.ReactElement {
                 color: Platform.OS === 'web' ? undefined : '#0600FF',
               }}
             >
-              shikaq
+              Que
             </Text>
             <Text
               style={{
@@ -245,7 +245,7 @@ export function Login(): React.ReactElement {
               )}
             </View>
             <Text className="flex-1 text-[12px] text-secondaryLabel leading-[1.4]">
-              shikaq からの新着情報やキャンペーンを受け取る
+              Que からの新着情報やキャンペーンを受け取る
             </Text>
           </Pressable>
         )}
@@ -268,7 +268,7 @@ export function Login(): React.ReactElement {
         {/* 利用規約・プライバシーポリシー同意文言 — sign-up mode only */}
         {mode === 'sign-up' && (
           <Text className="text-[11px] text-secondaryLabel leading-[1.5] mb-4">
-            登録すると、shikaq の{' '}
+            登録すると、Que の{' '}
             <Text
               className="text-systemBlue"
               onPress={() => router.push('/legal/terms' as never)}

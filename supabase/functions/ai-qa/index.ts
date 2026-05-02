@@ -15,7 +15,7 @@ const DEEPSEEK_API_KEY = env.get('DEEPSEEK_API_KEY') ?? '';
 const SUPABASE_URL = env.get('SUPABASE_URL') ?? '';
 const SUPABASE_ANON_KEY = env.get('SUPABASE_ANON_KEY') ?? '';
 
-const SYSTEM_PROMPT = `あなたは shikaq という日本の資格学習サービスの学習支援 AI です。
+const SYSTEM_PROMPT = `あなたは Que という日本の資格学習サービスの学習支援 AI です。
 対象資格は IT パスポート / 基本情報技術者 / SPI / 簿記2級。
 ユーザーは 20 代の社会人で、丁寧で分かりやすい日本語で回答します。
 冗長な前置きや「お答えします」のような口上は省き、要点から入ってください。

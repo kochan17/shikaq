@@ -66,7 +66,7 @@ function PremiumCard(): React.ReactElement {
 
   return (
     <View className="mx-4 mb-3 p-4 rounded-xl hairline-border bg-secondarySystemBackground">
-      <Text className="text-[13px] font-semibold text-label mb-1">shikaq プレミアム</Text>
+      <Text className="text-[13px] font-semibold text-label mb-1">Que プレミアム</Text>
       <Text className="text-[11px] text-secondaryLabel mb-1">月額 ¥980（税込）</Text>
       <Text className="text-[11px] text-secondaryLabel mb-3">すべての機能を利用できます</Text>
       <Pressable
@@ -140,7 +140,7 @@ export function Sidebar({
       }`}
     >
       <View className="px-6 py-6">
-        <Text className="text-[22px] font-semibold text-label tracking-tight">shikaq</Text>
+        <Text className="text-[22px] font-semibold text-label tracking-tight">Que</Text>
       </View>
 
       <ScrollView

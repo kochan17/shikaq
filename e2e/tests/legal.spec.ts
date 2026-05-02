@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // legal ページは #50（法的ページ実装）完了後に有効化
-// 現時点では shikaq-app/legal/ に markdown があるが Expo Router ルートは未作成
+// 現時点では que-app/legal/ に markdown があるが Expo Router ルートは未作成
 
 const LEGAL_PAGES = [
   { path: '/legal/terms', name: '利用規約' },

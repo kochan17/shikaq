@@ -12,7 +12,7 @@ import { signOut } from '../../lib/supabase/auth';
 import { toggleCalmMode } from '../../lib/gamification/calmMode';
 import { scheduleMorningReminder, cancelMorningReminder } from '../../lib/notifications';
 
-const NOTIFICATIONS_ENABLED_KEY = 'shikaq_notifications_enabled';
+const NOTIFICATIONS_ENABLED_KEY = 'que_notifications_enabled';
 
 export function Profile(): React.ReactElement {
   const { user, profile } = useAuth();
@@ -140,7 +140,7 @@ export function Profile(): React.ReactElement {
             <View className="flex-row items-center justify-between mb-2">
               <Text className="text-[14px] text-secondaryLabel">プラン</Text>
               <Text className="text-[14px] font-semibold text-label">
-                {sub?.is_premium === true ? 'shikaq プレミアム' : 'フリープラン'}
+                {sub?.is_premium === true ? 'Que プレミアム' : 'フリープラン'}
               </Text>
             </View>
             <View className="flex-row items-center justify-between mb-2">

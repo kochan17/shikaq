@@ -64,7 +64,7 @@ export default function OnboardingIndex(): React.ReactElement {
 
   return (
     <>
-    <Head><title>shikaq を始める</title></Head>
+    <Head><title>Que を始める</title></Head>
     <SafeAreaView className="flex-1 bg-systemGroupedBackground">
       <View className="flex-1 px-6 pb-8">
         <View className="flex-row justify-end pt-4 pb-2">
@@ -79,7 +79,7 @@ export default function OnboardingIndex(): React.ReactElement {
               className="text-label tracking-tight mb-3"
               style={{ fontSize: 36, fontWeight: '700' }}
             >
-              shikaq
+              Que
             </Text>
             <Text
               className="text-label text-center leading-relaxed"

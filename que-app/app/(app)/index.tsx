@@ -12,7 +12,7 @@ export default function TodayRoute(): React.ReactElement {
   if (width < 768) {
     return (
       <>
-        <Head><title>今日 | shikaq</title></Head>
+        <Head><title>今日 | Que</title></Head>
         <MobileToday />
       </>
     );
@@ -20,7 +20,7 @@ export default function TodayRoute(): React.ReactElement {
 
   return (
     <>
-      <Head><title>今日 | shikaq</title></Head>
+      <Head><title>今日 | Que</title></Head>
       <Today onNavigate={(key) => router.push(screenToPath(key) as never)} />
     </>
   );

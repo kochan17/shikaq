@@ -1,5 +1,5 @@
 -- =====================================================================
--- shikaq initial schema
+-- que initial schema
 -- =====================================================================
 -- Auth は Supabase が管理する auth.users / auth.sessions / auth.identities を利用。
 -- 全テーブル RLS 有効化。auth.uid() = user_id で自分のデータのみアクセス可能。

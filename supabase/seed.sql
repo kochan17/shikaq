@@ -1,5 +1,5 @@
 -- =====================================================================
--- shikaq seed data (development)
+-- que seed data (development)
 -- =====================================================================
 -- 4 資格 × 各 1-2 コース × セクション × レッスン × 問題 のミニマルセット。
 -- 全 is_published = true / status = 'published' で公開状態。
@@ -24,7 +24,7 @@ select c.id,
          when 'spi'  then 'SPI 標準コース'
          when 'boki' then '簿記2級 標準コース'
        end,
-       'shikaq の標準カリキュラム',
+       'Que の標準カリキュラム',
        true, 1
   from c;
 

@@ -83,8 +83,8 @@ export interface OnboardingResult {
   completedAt: string;
 }
 
-const STORAGE_KEY = 'shikaq_onboarding_result';
-const COMPLETED_FLAG_KEY = 'shikaq_onboarding_completed';
+const STORAGE_KEY = 'que_onboarding_result';
+const COMPLETED_FLAG_KEY = 'que_onboarding_completed';
 
 export function saveOnboardingResult(result: OnboardingResult): void {
   if (typeof localStorage === 'undefined') return;

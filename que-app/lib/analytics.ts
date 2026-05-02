@@ -3,11 +3,11 @@
  *
  * セットアップ (ユーザー作業):
  *   1. https://plausible.io で以下の 2 サイトを登録:
- *      - shikaq-app.vercel.app  (Expo Web)
- *      - shikaq.app             (shikaq-site)
+ *      - que.app.vercel.app  (Expo Web)
+ *      - que.app             (que-site)
  *   2. 各環境変数を設定:
- *      - shikaq-app/.env: EXPO_PUBLIC_PLAUSIBLE_DOMAIN=shikaq-app.vercel.app
- *      - shikaq-site/.env: PUBLIC_PLAUSIBLE_DOMAIN=shikaq.app
+ *      - que.app/.env: EXPO_PUBLIC_PLAUSIBLE_DOMAIN=que.app.vercel.app
+ *      - que-site/.env: PUBLIC_PLAUSIBLE_DOMAIN=que.app
  *   3. 月 10K pageview を超える前に Self-host または有料プランへの移行を検討。
  *
  * イベント命名規約: <screen>_<action>

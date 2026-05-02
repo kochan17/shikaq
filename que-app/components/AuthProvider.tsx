@@ -32,7 +32,7 @@ const DEV_BYPASS = process.env.EXPO_PUBLIC_DEV_BYPASS_AUTH === 'true';
 
 const DEV_USER = {
   id: 'dev-user',
-  email: 'dev@shikaq.local',
+  email: 'dev@que.local',
   user_metadata: { display_name: '和田 夏海' },
 } as unknown as User;
 

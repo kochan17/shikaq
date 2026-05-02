@@ -23,7 +23,7 @@ async function getNotifications(): Promise<typeof import('expo-notifications') |
   }
 }
 
-const MORNING_REMINDER_ID = 'shikaq-morning-reminder';
+const MORNING_REMINDER_ID = 'que-morning-reminder';
 
 export async function registerForPushNotificationsAsync(): Promise<string | null> {
   if (!isNative) return null;
@@ -69,7 +69,7 @@ export async function scheduleMorningReminder({
   await Notifications.scheduleNotificationAsync({
     identifier: MORNING_REMINDER_ID,
     content: {
-      title: 'shikaq',
+      title: 'Que',
       body: `今日の ${questionGoal} 問が届きました`,
       sound: 'default',
     },
@@ -91,7 +91,7 @@ export async function cancelMorningReminder(): Promise<void> {
   await Notifications.cancelScheduledNotificationAsync(MORNING_REMINDER_ID);
 }
 
-const EVENING_REMINDER_ID = 'shikaq-evening-reminder';
+const EVENING_REMINDER_ID = 'que-evening-reminder';
 
 interface ScheduleEveningReminderOptions {
   time?: string;
@@ -120,7 +120,7 @@ export async function scheduleEveningReminder({
   await Notifications.scheduleNotificationAsync({
     identifier: EVENING_REMINDER_ID,
     content: {
-      title: 'shikaq',
+      title: 'Que',
       body: '夜の音声解説が更新されました',
       sound: 'default',
     },

@@ -23,7 +23,7 @@
   <rect x="96" y="252" width="120" height="3" rx="1.5" fill="url(#accent)" />
 
   <!-- Brand name -->
-  <text x="96" y="316" font-family="'SF Pro Display', 'Helvetica Neue', sans-serif" font-weight="700" font-size="80" letter-spacing="-3" fill="#FFFFFF">shikaq</text>
+  <text x="96" y="316" font-family="'SF Pro Display', 'Helvetica Neue', sans-serif" font-weight="700" font-size="80" letter-spacing="-3" fill="#FFFFFF">Que</text>
 
   <!-- Tagline -->
   <text x="96" y="368" font-family="'SF Pro Text', 'Helvetica Neue', sans-serif" font-weight="400" font-size="28" fill="#EBEBF599">資格学習のサブスク — 月額¥980</text>

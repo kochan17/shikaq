@@ -9,7 +9,7 @@ interface MorphingTextProps {
   className?: string;
 }
 
-const SVG_FILTER_ID = 'shikaq-morph-threshold';
+const SVG_FILTER_ID = 'que-morph-threshold';
 
 function ensureSvgFilter(): void {
   if (typeof document === 'undefined') return;

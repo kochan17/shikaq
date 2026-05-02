@@ -21,7 +21,7 @@ export default function LoginRoute(): React.ReactElement {
 
   return (
     <>
-      <Head><title>ログイン | shikaq</title></Head>
+      <Head><title>ログイン | Que</title></Head>
       <Login />
     </>
   );

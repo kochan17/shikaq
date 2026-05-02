@@ -3,11 +3,11 @@
  *
  * 実行前提:
  *   - supabase start が完了していること
- *   - shikaq-app/.env に EXPO_PUBLIC_SUPABASE_URL / EXPO_PUBLIC_SUPABASE_ANON_KEY が設定済みであること
+ *   - que.app/.env に EXPO_PUBLIC_SUPABASE_URL / EXPO_PUBLIC_SUPABASE_ANON_KEY が設定済みであること
  *   - Supabase Studio (http://localhost:54323) でテストユーザー + published 問題が存在すること
  *
  * 実行方法:
- *   cd shikaq-app
+ *   cd que.app
  *   npx ts-node --project tsconfig.json lib/srs/fsrs.test-manual.ts
  *
  * ---
