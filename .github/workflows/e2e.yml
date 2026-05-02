@@ -35,7 +35,7 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Install app dependencies
-        working-directory: shikaq-app
+        working-directory: que-app
         run: npm ci
 
       # Phase 2: supabase start をここで実行（Docker-in-Docker 設定が必要）
@@ -43,7 +43,7 @@ jobs:
       #   run: npx supabase start
 
       - name: Start Expo web server (background)
-        working-directory: shikaq-app
+        working-directory: que-app
         env:
           EXPO_PUBLIC_DEV_BYPASS_AUTH: 'true'
           # EXPO_PUBLIC_SUPABASE_URL と EXPO_PUBLIC_SUPABASE_ANON_KEY は
@@ -58,7 +58,7 @@ jobs:
         working-directory: e2e
         env:
           CI: 'true'
-          SHIKAQ_BASE_URL: 'http://localhost:8081'
+          QUE_BASE_URL: 'http://localhost:8081'
         run: npm test
 
       - name: Upload test report

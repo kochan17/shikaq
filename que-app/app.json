@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "shikaq-app",
-    "slug": "shikaq-app",
-    "scheme": "shikaq",
+    "name": "que-app",
+    "slug": "que-app",
+    "scheme": "que",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,10 +14,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "bundleIdentifier": "com.que.app",
       "supportsTablet": true,
       "usesAppleSignIn": true
     },
     "android": {
+      "package": "com.que.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

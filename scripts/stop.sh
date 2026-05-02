@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shikaq dev environment stopper
+# que dev environment stopper
 #
 # 停止するもの:
 #   1. Expo dev server (port 8081)

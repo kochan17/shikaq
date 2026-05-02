@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const isCI = !!process.env.CI;
-const baseURL = process.env.SHIKAQ_BASE_URL ?? 'http://localhost:8081';
+const baseURL = process.env.QUE_BASE_URL ?? 'http://localhost:8081';
 
 export default defineConfig({
   testDir: './tests',

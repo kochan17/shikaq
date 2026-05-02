@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shikaq dev environment runner
+# que dev environment runner
 #
 # 起動するもの:
 #   1. Supabase ローカル (Docker、まだ起動してなければ)
@@ -97,7 +97,7 @@ fi
 
 # ────────── 4. Expo Web ──────────
 echo "[dev] starting expo web        → log: $EXPO_LOG"
-(cd "$ROOT/shikaq-app" && npm run web >"$EXPO_LOG" 2>&1) &
+(cd "$ROOT/que-app" && npm run web >"$EXPO_LOG" 2>&1) &
 pids+=($!)
 
 # ────────── 5. Cloudflare Tunnel (Supabase API を HTTPS 公開) ──────────
@@ -127,7 +127,7 @@ fi
 
 echo
 echo "──────────────────────────────────────────────"
-echo "  shikaq dev environment running"
+echo "  que dev environment running"
 echo "──────────────────────────────────────────────"
 echo "  App        http://localhost:8081"
 echo "  Supabase   http://127.0.0.1:54321"
