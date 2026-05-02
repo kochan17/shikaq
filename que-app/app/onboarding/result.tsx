@@ -47,7 +47,7 @@ export default function OnboardingResult(): React.ReactElement {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-systemGroupedBackground">
+    <SafeAreaView className="flex-1 bg-systemBackground">
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}

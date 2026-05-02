@@ -77,6 +77,24 @@
       transform: none;
     }
   }
+  .brand-spinner {
+    display: inline-flex;
+    animation: brand-spin 0.9s linear infinite;
+    transform-origin: center;
+  }
+  @keyframes brand-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-spinner {
+      animation-duration: 2s;
+    }
+  }
   .login-bg-icon {
     position: absolute;
     pointer-events: none;

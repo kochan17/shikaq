@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { View, Text, Pressable, ScrollView, ActivityIndicator } from 'react-native';
+import { BrandSpinner } from '../../components/BrandSpinner';
+import { View, Text, Pressable, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { MaterialIcon } from '../../components/MaterialIcon';
 import { useAuth } from '../../components/AuthProvider';
@@ -105,7 +106,7 @@ export default function PauseScreen(): React.ReactElement {
             className="bg-systemBlue rounded-full py-3 items-center"
           >
             {busy ? (
-              <ActivityIndicator color="#FFFFFF" />
+              <BrandSpinner variant="white" size={20} />
             ) : (
               <Text className="text-[16px] font-semibold text-white">今すぐ再開する</Text>
             )}
@@ -157,7 +158,7 @@ export default function PauseScreen(): React.ReactElement {
             className="bg-systemOrange rounded-full py-3 items-center mt-5"
           >
             {busy ? (
-              <ActivityIndicator color="#FFFFFF" />
+              <BrandSpinner variant="white" size={20} />
             ) : (
               <Text className="text-[16px] font-semibold text-white">
                 {PAUSE_OPTIONS.find((o) => o.days === selected)?.label ?? ''}一時停止する

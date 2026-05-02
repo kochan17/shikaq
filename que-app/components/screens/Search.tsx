@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Pressable, ScrollView, ActivityIndicator } from 'react-native';
+import { BrandSpinner } from '../BrandSpinner';
+import { View, Text, TextInput, Pressable, ScrollView } from 'react-native';
 import { MaterialIcon } from '../MaterialIcon';
 import { globalSearch, type SearchResult } from '../../lib/supabase/queries';
 
@@ -38,7 +39,7 @@ export function Search(): React.ReactElement {
             onSubmitEditing={() => void run()}
             autoFocus
           />
-          {busy && <ActivityIndicator size="small" />}
+          {busy && <BrandSpinner size={20} />}
         </View>
       </View>
 

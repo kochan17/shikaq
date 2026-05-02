@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { BrandSpinner } from '../BrandSpinner';
 import {
   View,
   Text,
   Pressable,
   ScrollView,
-  ActivityIndicator,
   AccessibilityInfo,
 } from 'react-native';
 import { MaterialIcon } from '../MaterialIcon';
@@ -179,7 +179,7 @@ export function Audio({ certSlug = null, onBack }: AudioProps): React.ReactEleme
 
       {loading && (
         <View className="flex-1 items-center justify-center">
-          <ActivityIndicator />
+          <BrandSpinner size={32} />
         </View>
       )}
 

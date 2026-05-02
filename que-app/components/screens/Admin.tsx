@@ -1,11 +1,11 @@
 import { useEffect, useState, useCallback } from 'react';
+import { BrandSpinner } from '../BrandSpinner';
 import {
   View,
   Text,
   Pressable,
   ScrollView,
   TextInput,
-  ActivityIndicator,
 } from 'react-native';
 import { MaterialIcon } from '../MaterialIcon';
 import { useAuth } from '../AuthProvider';
@@ -156,7 +156,7 @@ function AdminDashboard({ onNavigate }: { onNavigate: (tab: Tab) => void }): Rea
   if (loading || stats === null) {
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator />
+        <BrandSpinner size={32} />
       </View>
     );
   }
@@ -269,7 +269,7 @@ function AdminCertifications(): React.ReactElement {
   if (loading) {
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator />
+        <BrandSpinner size={32} />
       </View>
     );
   }
@@ -383,7 +383,7 @@ function AdminCourses(): React.ReactElement {
   if (loading) {
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator />
+        <BrandSpinner size={32} />
       </View>
     );
   }
@@ -532,7 +532,7 @@ function AdminSections(): React.ReactElement {
   if (loading) {
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator />
+        <BrandSpinner size={32} />
       </View>
     );
   }
@@ -650,7 +650,7 @@ function AdminUsers(): React.ReactElement {
   if (loading) {
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator />
+        <BrandSpinner size={32} />
       </View>
     );
   }
@@ -804,7 +804,7 @@ function AdminLessons(): React.ReactElement {
 
       {loading ? (
         <View className="flex-1 items-center justify-center">
-          <ActivityIndicator />
+          <BrandSpinner size={32} />
         </View>
       ) : (
         <ScrollView className="flex-1" contentContainerStyle={{ padding: 32, gap: 8 }}>
@@ -1138,7 +1138,7 @@ function AdminQuestions(): React.ReactElement {
 
       {loading ? (
         <View className="flex-1 items-center justify-center">
-          <ActivityIndicator />
+          <BrandSpinner size={32} />
         </View>
       ) : (
         <ScrollView className="flex-1" contentContainerStyle={{ padding: 32, gap: 8 }}>
@@ -1459,7 +1459,7 @@ function FormActions({ onCancel, onSave, saving = false }: FormActionsProps): Re
         className="flex-1 bg-systemBlue rounded-full py-2.5 items-center"
       >
         {saving ? (
-          <ActivityIndicator size="small" color="white" />
+          <BrandSpinner variant="white" size={20} />
         ) : (
           <Text className="text-[14px] font-semibold text-white">保存</Text>
         )}

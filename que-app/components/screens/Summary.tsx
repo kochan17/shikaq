@@ -1,9 +1,9 @@
 import React from 'react';
+import { BrandSpinner } from '../BrandSpinner';
 import {
   View,
   Text,
   ScrollView,
-  ActivityIndicator,
   useWindowDimensions,
 } from 'react-native';
 import { useAuth } from '../AuthProvider';
@@ -153,7 +153,7 @@ export function Summary(): React.ReactElement {
       >
         {loading ? (
           <View className="py-20 items-center">
-            <ActivityIndicator />
+            <BrandSpinner size={32} />
           </View>
         ) : isTablet ? (
           <TabletLayout>{cards}</TabletLayout>

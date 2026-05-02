@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
+import { BrandSpinner } from '../BrandSpinner';
+import { View, Text, ScrollView } from 'react-native';
 import { MaterialIcon } from '../MaterialIcon';
 import {
   fetchNotifications,
@@ -42,7 +43,7 @@ export function Notifications(): React.ReactElement {
 
       {loading && (
         <View className="flex-1 items-center justify-center">
-          <ActivityIndicator />
+          <BrandSpinner size={32} />
         </View>
       )}
 

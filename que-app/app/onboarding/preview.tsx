@@ -72,7 +72,7 @@ export default function OnboardingPreview(): React.ReactElement {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-systemGroupedBackground">
+    <SafeAreaView className="flex-1 bg-systemBackground">
       <View className="flex-row items-center px-4 pt-2 pb-1">
         <Pressable
           onPress={() => router.back()}

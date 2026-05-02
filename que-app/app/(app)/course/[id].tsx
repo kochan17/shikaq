@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
+import { BrandSpinner } from '../../../components/BrandSpinner';
 import {
-  ActivityIndicator,
   Pressable,
   ScrollView,
   Text,
@@ -264,7 +264,7 @@ export default function CourseDetailScreen(): React.ReactElement {
   if (isLoading) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} className="bg-systemGroupedBackground">
-        <ActivityIndicator />
+        <BrandSpinner size={32} />
       </View>
     );
   }

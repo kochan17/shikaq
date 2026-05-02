@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { BrandSpinner } from '../BrandSpinner';
 import {
   View,
   Text,
   TextInput,
   Pressable,
-  ActivityIndicator,
   Platform,
   useWindowDimensions,
 } from 'react-native';
@@ -259,7 +259,7 @@ export function Login(): React.ReactElement {
           disabled={busy}
         >
           {busy ? (
-            <ActivityIndicator color="#fff" />
+            <BrandSpinner variant="white" size={20} />
           ) : (
             <Text className="text-white text-[17px] font-semibold">{cta}</Text>
           )}
@@ -344,16 +344,6 @@ export function Login(): React.ReactElement {
                 {mode === 'sign-in' ? '新規登録' : 'ログイン'}
               </Text>
             )}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          onPress={() => router.push('/onboarding' as never)}
-          className="items-center mt-4"
-        >
-          <Text className="text-[13px] text-secondaryLabel">
-            初めての方は{' '}
-            <Text className="text-systemBlue">1問だけ体験する</Text>
           </Text>
         </Pressable>
         </View>

@@ -5,11 +5,11 @@ import {
   useState,
   type MutableRefObject,
 } from 'react';
+import { BrandSpinner } from '../BrandSpinner';
 import {
   View,
   Text,
   Pressable,
-  ActivityIndicator,
   Animated,
   AccessibilityInfo,
   Platform,
@@ -502,7 +502,7 @@ export function Practice(): React.ReactElement {
   if (phase === 'loading') {
     return (
       <View className="flex-1 items-center justify-center bg-systemBackground">
-        <ActivityIndicator />
+        <BrandSpinner size={32} />
       </View>
     );
   }

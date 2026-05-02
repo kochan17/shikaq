@@ -65,7 +65,7 @@ export default function OnboardingIndex(): React.ReactElement {
   return (
     <>
     <Head><title>Que を始める</title></Head>
-    <SafeAreaView className="flex-1 bg-systemGroupedBackground">
+    <SafeAreaView className="flex-1 bg-systemBackground">
       <View className="flex-1 px-6 pb-8">
         <View className="flex-row justify-end pt-4 pb-2">
           <Pressable onPress={handleSkip}>
@@ -76,8 +76,12 @@ export default function OnboardingIndex(): React.ReactElement {
         <View className="flex-1 justify-center">
           <View className="mb-10 items-center">
             <Text
-              className="text-label tracking-tight mb-3"
-              style={{ fontSize: 36, fontWeight: '700' }}
+              className={Platform.OS === 'web' ? 'brand-gradient-text tracking-tight mb-3' : 'tracking-tight mb-3'}
+              style={{
+                fontSize: 36,
+                fontWeight: '700',
+                color: Platform.OS === 'web' ? undefined : '#0600FF',
+              }}
             >
               Que
             </Text>

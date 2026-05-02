@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
+import { BrandSpinner } from '../BrandSpinner';
 import {
-  ActivityIndicator,
   Pressable,
   ScrollView,
   Text,
@@ -184,7 +184,7 @@ export function Learn(): React.ReactElement {
       {/* Content */}
       {isLoading ? (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <ActivityIndicator />
+          <BrandSpinner size={32} />
         </View>
       ) : error !== null ? (
         <View style={{ margin: 32, padding: 20, borderRadius: 16 }} className="bg-systemBackground hairline-border">

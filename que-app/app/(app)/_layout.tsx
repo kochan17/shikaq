@@ -1,7 +1,8 @@
-import { ActivityIndicator, useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 import { Redirect, Slot, useRouter, usePathname } from 'expo-router';
 import { useAuth } from '../../components/AuthProvider';
 import { Sidebar } from '../../components/Sidebar';
+import { BrandSpinner } from '../../components/BrandSpinner';
 import { signOut } from '../../lib/supabase/auth';
 import { screenToPath, pathToScreen } from '../../lib/navigation';
 import { hasCompletedOnboarding } from '../../data/onboarding-questions';
@@ -14,8 +15,8 @@ export default function AppLayout(): React.ReactElement {
 
   if (loading) {
     return (
-      <View className="flex-1 items-center justify-center bg-systemGroupedBackground">
-        <ActivityIndicator />
+      <View className="flex-1 items-center justify-center bg-systemBackground">
+        <BrandSpinner size={40} />
       </View>
     );
   }

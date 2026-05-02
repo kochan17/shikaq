@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { View, Text, Pressable, ScrollView, ActivityIndicator, Linking, Platform, Switch } from 'react-native';
+import { BrandSpinner } from '../BrandSpinner';
+import { View, Text, Pressable, ScrollView, Linking, Platform, Switch } from 'react-native';
 import { useRouter } from 'expo-router';
 import { MaterialIcon } from '../MaterialIcon';
 import {
@@ -134,7 +135,7 @@ export function Profile(): React.ReactElement {
       <View className="bg-systemBackground rounded-2xl hairline-border p-6 mb-4">
         <Text className="text-[16px] font-semibold text-label mb-3">サブスクリプション</Text>
         {loading ? (
-          <ActivityIndicator />
+          <BrandSpinner size={32} />
         ) : (
           <>
             <View className="flex-row items-center justify-between mb-2">
